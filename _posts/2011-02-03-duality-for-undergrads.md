@@ -39,21 +39,16 @@ We have:
 
 $$ \lambda_A = \max_p \min_q p^T M q \geq \min_q \bar{p}^T M q = \min_q \frac{1}{T} \sum_t p_t^T M q $$
 
-By minimizing over  q at each game iteration instead of minimizing over  q on all\
-game rounds, player B can only decrease his loss (and decrease player A's profit) and\
-hence:
+By minimizing over  q at each game iteration instead of minimizing over  q on all game rounds, player B can only decrease his loss (and decrease player A's profit) and hence:
 
 $$ \min_q \bar{p}^T M q \geq \frac{1}{T} \sum_t p_t M q_t$$
 
-where $q_t = \arg \min_q p_t^T M q$.\
-By the low regret property we have
+where $q_t = \arg \min_q p_t^T M q$. By the low regret property we have
 
 $$ \frac{1}{T} \sum_t p_t^T M q_t \geq \max_p \frac{1}{T} \sum_t p^T M q_t -- o(1) $$
 
-Hence:\
-$$ \frac{1}{T} \sum_t p_t M q_t \geq \max_p \frac{1}{T} \sum_t p M q_t -- o(1) \geq \min_q \max_p p^T M q -- o(1) $$
+Hence: $$ \frac{1}{T} \sum_t p_t M q_t \geq \max_p \frac{1}{T} \sum_t p M q_t -- o(1) \geq \min_q \max_p p^T M q -- o(1) $$
 
 Overall we got:
 
-$$\lambda_A \geq \lambda_B -- o(1)$$\
-as needed.
+$$\lambda_A \geq \lambda_B -- o(1)$$ as needed.
