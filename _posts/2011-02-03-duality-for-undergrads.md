@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Duality for undergrads"
-author: Elad Hazan
+authors: [elad_hazan, daniel_suo, Jane Doe]
 mathjax: true
 ---
 

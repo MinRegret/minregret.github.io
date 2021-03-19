@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Making second order methods practical for machine learning
-author: Elad Hazan
+authors: [elad_hazan]
 mathjax: true
 ---
 

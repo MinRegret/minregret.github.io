@@ -3,4 +3,9 @@ logo: https://raw.githubusercontent.com/MinRegret/deluca/dev/assets/img/deluca.s
 description: Google Princeton AI and Hazan Lab @ Princeton University
 show_downloads: false
 theme: jekyll-theme-minimal
+author:
+  name: Elad Hazan
+  email: ehazan@cs.princeton.edu
+  web: http://www.cs.princeton.edu/~ehazan
+
 google_analytics:
