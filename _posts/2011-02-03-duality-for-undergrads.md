@@ -25,25 +25,25 @@ The last step is of course the main one. Here's an almost precise account of the
 
 $$ \lambda_A =  \max_p \min_q p^T M q = \min_q \max_p p^T M q = \lambda_B $$
 
-Here $M$ is the game payoff matrix (payoffs to the row player and costs to the column player), $p$ and $q$ are distributions over the strategies of the players. The relation $ \max_p \min_q p^T M q \le \min_q \max_p p^T M q $ is called "weak duality", and follows easily from reasoning. The other direction, "strong duality", is where we need experts algorithms.
+Here $$M$$ is the game payoff matrix (payoffs to the row player and costs to the column player), $$p$$ and $$q$$ are distributions over the strategies of the players. The relation $$ \max_p \min_q p^T M q \le \min_q \max_p p^T M q $$ is called "weak duality", and follows easily from reasoning. The other direction, "strong duality", is where we need experts algorithms.
 
-Consider a repeated game, in which the row player constructs $p_t$ at each iteration $t \in [T]$ according to an experts' algorithm. An experts algorithm guarantees the following: (this is the definition of an experts' algorithm)
+Consider a repeated game, in which the row player constructs $$p_t$$ at each iteration $$t \in [T]$$ according to an experts' algorithm. An experts algorithm guarantees the following: (this is the definition of an experts' algorithm)
 
 $$ \frac{1}{T} \sum_t p_t^T M q_t \geq \frac{1}{T} \max_{p_*} \sum_t p_*^T M q_t  -- o(1) $$
 
-Here $t=1,2,...,T$ are the iterations of the repeated game, $p_t$ is the experts' mixed strategy at time $t$, and $q_t$ can be anything.
+Here $$t=1,2,...,T$$ are the iterations of the repeated game, $$p_t$$ is the experts' mixed strategy at time $$t$$, and $$q_t$$ can be anything.
 
-Define the average distributions to be: $\bar{p} = \frac{1}{T} \sum_t p_t$ and $\bar{q} = \frac{1}{T} \sum_t q_t$.
+Define the average distributions to be: $$\bar{p} = \frac{1}{T} \sum_t p_t$$ and $$\bar{q} = \frac{1}{T} \sum_t q_t$$.
 
 We have:
 
 $$ \lambda_A = \max_p \min_q p^T M q \geq \min_q \bar{p}^T M q = \min_q \frac{1}{T} \sum_t p_t^T M q $$
 
-By minimizing over  q at each game iteration instead of minimizing over  q on all game rounds, player B can only decrease his loss (and decrease player A's profit) and hence:
+By minimizing over $$ q $$ at each game iteration instead of minimizing over $$ q $$ on all game rounds, player B can only decrease his loss (and decrease player A's profit) and hence:
 
 $$ \min_q \bar{p}^T M q \geq \frac{1}{T} \sum_t p_t M q_t$$
 
-where $q_t = \arg \min_q p_t^T M q$. By the low regret property we have
+where $$q_t = \arg \min_q p_t^T M q$$. By the low regret property we have
 
 $$ \frac{1}{T} \sum_t p_t^T M q_t \geq \max_p \frac{1}{T} \sum_t p^T M q_t -- o(1) $$
 
