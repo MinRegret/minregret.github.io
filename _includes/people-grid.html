@@ -1,6 +1,7 @@
 <div class="people-grid">
-  {% for person in site.data.people %}
+  {% for hash in site.data.people %}
 
+  {% assign person = hash[1] %}
   <div>
     {% if person.status == status %}
     <div class="person">

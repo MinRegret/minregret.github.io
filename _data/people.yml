@@ -1,83 +1,103 @@
 # Current members
-- name: Elad Hazan
+elad:
+  name: Elad Hazan
   title: Director, Professor of Computer Science at Princeton University
   website: http://www.cs.princeton.edu/~ehazan
   status: current
-- name: Samory Kpotufe
+samory:
+  name: Samory Kpotufe
   title: Visiting Faculty, Associate Professor of Statistics at Columbia University
   website: http://www.columbia.edu/~skk2175/
   status: current
-- name: Anirudha Majumdar
+anirudha:
+  name: Anirudha Majumdar
   title: Visiting Faculty, Assistant Professor of Mechanical and Aerospace Engineering at Princeton University
-  website: https://irom-lab.princeton.edu/majumdar/
+  website: https://irom lab.princeton.edu/majumdar/
   status: current
-- name: Jason Lee
+jason:
+  name: Jason Lee
   title: Visiting Faculty, Assistant Professor of Electrical and Computer Engineering and of Computer Science
   website: https://jasondlee88.github.io/
   status: current
-- name: Naman Agarwal
+naman:
+  name: Naman Agarwal
   title: Research Scientist at Google
   website: https://naman33k.github.io/
   status: current
-- name: Xinyi Chen
+xinyi:
+  name: Xinyi Chen
   title: Research Scientist, Graduate Student at Princeton University
   website: https://xinyi.github.io/
   status: current
-- name: Edgar Minasyan
+edgar:
+  name: Edgar Minasyan
   title: Graduate Student at Princeton University
   website: https://minasyan.github.io/
   status: current
-- name: Nataly Brukhim
+nataly:
+  name: Nataly Brukhim
   title: Graduate Student at Princeton University
   website: https://www.cs.princeton.edu/~nbrukhim/
   status: current
-- name: Udaya Ghai
+udaya:
+  name: Udaya Ghai
   title: Graduate Student at Princeton University
   website: https://www.cs.princeton.edu/~ughai/
   status: current
-- name: Daniel Suo
+daniel:
+  name: Daniel Suo
   title: Software Engineer at Google
   website: https://danielsuo.com/
   status: current
-- name: Alex Yu
+alex:
+  name: Alex Yu
   title: Software Engineer at Google
-  website: https://www.linkedin.com/in/alexander-yu-8ba037163/
+  website: https://www.linkedin.com/in/alexander yu 8ba037163/
   status: current
-- name: Paula Gradu
+paula:
+  name: Paula Gradu
   title: Undergraduate Student at Princeton University
-  website: https://paula-gradu.github.io/
+  website: https://paula gradu.github.io/
   status: current
 
 # Former members
-- name: Karan Singh
+karan:
+  name: Karan Singh
   title: Postdoctoral Researcher at Microsoft
-  website: https://i-am-karan-singh.github.io/
+  website: https://i am karan singh.github.io/
   status: former
-- name: Cyril Zhang
+cyril:
+  name: Cyril Zhang
   title: Research Scientist at Microsoft
   website: https://cyrilzhang.com/
   status: former
-- name: Shay Moran
+shay:
+  name: Shay Moran
   title: Assistant Professor of Mathematics at the Technion
   website: http://www.cs.technion.ac.il/~shaymrn/
   status: former
-- name: John Hallman
+john:
+  name: John Hallman
   title: Machine Learning Engineer at Sisu
   website: http://www.johnolofhallman.se/
   status: former
-- name: Sham Kakade
+sham:
+  name: Sham Kakade
   title: Research Scientist at Microsoft, Professor of Computer Science and of Statistics at University of Washington
   website: https://homes.cs.washington.edu/~sham/
   status: former
-- name: Yi Zhang
+yi:
+  name: Yi Zhang
   title: Graduate Student at Princeton University
   website: https://www.cs.princeton.edu/~yz7/
   status: former
-- name: Brian Bullins
+brian:
+  name: Brian Bullins
   title: Research Assistant Professor at the Toyota Technological Institute at Chicago
   website: https://bbullins.github.io/
   status: former
-- name: Abby Van Soest
+abby:
+  name: Abby Van Soest
   title: Software Engineer at Google
-  website: https://www.linkedin.com/in/abby-van-soest-148953109/
+  website: https://www.linkedin.com/in/abby van soest 148953109/
   status: former

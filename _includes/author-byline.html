@@ -1,0 +1,7 @@
+{% if site.data.people[author] %}
+  {% capture author_byline %}
+    <a href='{{ site.data.people[author].website }}'>{{ site.data.people[author].name }}</a>
+  {% endcapture %}
+{% else %}
+  {% assign author_byline = author %}
+{% endif %}
