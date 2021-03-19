@@ -7,11 +7,11 @@ title: Research
 
 ## Control and Reinforcement Learning
 
-- A new framework for robust control called [Non-Stochastic Control](https://sites.google.com/view/cos59x-cct/lecture-notes). This permits control in adversarial environments via a new type of algorithm, the [Gradient Perturbation Controller](https://arxiv.org/abs/1902.08721), which also gives rise to the first [logarithmic regret](https://arxiv.org/abs/1909.05062) in online control.\
+- A new framework for robust control called [Non-Stochastic Control](https://sites.google.com/view/cos59x-cct/lecture-notes). This permits control in adversarial environments via a new type of algorithm, the [Gradient Perturbation Controller](https://arxiv.org/abs/1902.08721), which also gives rise to the first [logarithmic regret](https://arxiv.org/abs/1909.05062) in online control.
 
-  In this framework we can also control with [unknown systems](https://arxiv.org/abs/1911.12178) and [partially observed states](https://arxiv.org/abs/2001.09254).\
+  In this framework we can also control with [unknown systems](https://arxiv.org/abs/1911.12178) and [partially observed states](https://arxiv.org/abs/2001.09254).
 
-  Recent additions include  [Non-Stochastic Control with Bandit Feedback](https://arxiv.org/pdf/2008.05523) , [Black-Box Control for Linear Dynamical Systems](https://arxiv.org/pdf/2007.06650) , [Adaptive Regret for Control of Time-Varying Dynamics](https://arxiv.org/pdf/2007.04393)\
+  Recent additions include  [Non-Stochastic Control with Bandit Feedback](https://arxiv.org/pdf/2008.05523) , [Black-Box Control for Linear Dynamical Systems](https://arxiv.org/pdf/2007.06650) , [Adaptive Regret for Control of Time-Varying Dynamics](https://arxiv.org/pdf/2007.04393)
 
   For a survey, see [these lecture notes](https://sites.google.com/view/cos59x-cct/lecture-notes).
 
