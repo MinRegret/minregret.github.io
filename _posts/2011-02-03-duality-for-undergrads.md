@@ -15,11 +15,11 @@ The second, and most popular, is a geometric proof via the [Farkas' lemma](http
 
 The way we tried this last semester proceeds as follows:
 
-1\. Define zero-sum games, and claim equivalence to linear programming. Zero sum games are clearly a special case, to show the other direction without resorting to heavy tools requires some care, as rigorously done by [Adler](http://www.optimization-online.org/DB_FILE/2010/06/2659.pdf). However, the intuition is very clear, and we did not go into details.
+1. Define zero-sum games, and claim equivalence to linear programming. Zero sum games are clearly a special case, to show the other direction without resorting to heavy tools requires some care, as rigorously done by [Adler](http://www.optimization-online.org/DB_FILE/2010/06/2659.pdf). However, the intuition is very clear, and we did not go into details.
 
-2\. Explain the minimax theorem. Again -- a very intuitive theorem, easier to grasp than duaity -- and equivalent by (1).
+2. Explain the minimax theorem. Again -- a very intuitive theorem, easier to grasp than duaity -- and equivalent by (1).
 
-3\. Prove the minimax theorem on the board. We are not going to use toplogy (fixed-point theorems) nor geometry (Farkas), but an elementary construct called experts algorithms. The method of proving the minimax theorem via experts algorithms is due to [Freund and Schapire](http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6WFW-45GMDYD-5&_user=10&_coverDate=10/31/1999&_rdoc=1&_fmt=high&_orig=search&_origin=search&_sort=d&_docanchor=&view=c&_searchStrId=1620650650&_rerunOrigin=google&_acct=C000050221&_version=1&_urlVersion=0&_userid=10&md5=eaaa00e3349ee127d6bd7307262ba2b3&searchtype=a).
+3. Prove the minimax theorem on the board. We are not going to use toplogy (fixed-point theorems) nor geometry (Farkas), but an elementary construct called experts algorithms. The method of proving the minimax theorem via experts algorithms is due to [Freund and Schapire](http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6WFW-45GMDYD-5&_user=10&_coverDate=10/31/1999&_rdoc=1&_fmt=high&_orig=search&_origin=search&_sort=d&_docanchor=&view=c&_searchStrId=1620650650&_rerunOrigin=google&_acct=C000050221&_version=1&_urlVersion=0&_userid=10&md5=eaaa00e3349ee127d6bd7307262ba2b3&searchtype=a).
 
 The last step is of course the main one. Here's an almost precise account of the proof:  Recall that the minimax theorem for zero sum games tells us that
 

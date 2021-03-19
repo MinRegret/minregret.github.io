@@ -41,7 +41,6 @@ Machine learning moves us from the custom-designed algorithm to generic models, 
 
 In recent years, convex optimization and the notion of regret minimization in games, have been combined and applied to machine learning in a general framework called online convex optimization. For more information see [graduate text book](http://ocobook.cs.princeton.edu/) on online convex optimization in machine learning, or survey on the [convex optimization approach to regret minimization](https://pdfs.semanticscholar.org/cea0/1bd3c778418117f447417f7c457eac94f992.pdf). Our research spans [efficient online algorithms](https://dl.acm.org/citation.cfm?id=1296051) as well as [matrix prediction](https://arxiv.org/abs/1204.0136) algorithms, and [decision making under uncertainty and continuous multi-armed bandits](https://ieeexplore.ieee.org/document/6191328?arnumber=6191328).
 
-<p align="center">
-  <img src="/research/cover.jpg">
-</p>
+{% assign image-link = "/research/cover.jpg" %}
+{% include center-image.html %}
 
