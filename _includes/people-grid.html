@@ -1,0 +1,23 @@
+<div class="people-grid">
+  {% for person in site.data.people %}
+
+  <div>
+    {% if person.status == status %}
+    <div class="person">
+      <img src="{{ person.name | downcase | replace: ' ', '-' }}.png" />
+      <div class="info">
+        <a
+          href="{{ person.website }}"
+          target="_blank"
+          rel="noreferrer noopener"
+          >{{ person.name }}</a
+        >
+        <br>
+        {{ person.title }}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+

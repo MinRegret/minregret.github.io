@@ -1,0 +1,55 @@
+# Current members
+- name: Elad Hazan
+  title: Director, Professor of Computer Science at Princeton University
+  website: http://www.cs.princeton.edu/~ehazan
+  status: current
+- name: Samory Kpotufe
+  title: Visiting Faculty, Associate Professor of Statistics at Columbia University
+  website: http://www.columbia.edu/~skk2175/
+  status: current
+- name: Anirudha Majumdar
+  title: Visiting Faculty, Assistant Professor of Mechanical and Aerospace Engineering at Princeton University
+  website: https://irom-lab.princeton.edu/majumdar/
+  status: current
+- name: Naman Agarwal
+  title: Research Scientist at Google
+  website: https://naman33k.github.io/
+  status: current
+- name: Xinyi Chen
+  title: Research Scientist, Graduate Student
+  website: https://xinyi.github.io/
+  status: current
+- name: Edgar Minasyan
+  title: Graduate Student
+  website: https://minasyan.github.io/
+  status: current
+- name: Nataly Brukhim
+  title: Graduate Student
+  website: https://www.cs.princeton.edu/~nbrukhim/
+  status: current
+- name: Udaya Ghai
+  title: Graduate Student
+  website: https://www.cs.princeton.edu/~ughai/
+  status: current
+- name: Daniel Suo
+  title: Software Engineer
+  website: https://danielsuo.com/
+  status: current
+- name: Alex Yu
+  title: Software Engineer
+  website: https://www.linkedin.com/in/alexander-yu-8ba037163/
+  status: current
+- name: Paula Gradu
+  title: Undergraduate Student
+  website: https://paula-gradu.github.io/
+  status: current
+
+# Former members
+- name: Karan Singh
+  title: Postdoctoral Researcher at Microsoft
+  website: https://i-am-karan-singh.github.io/
+  status: former
+- name: Cyril Zhang
+  title: Research Scientist at Microsoft
+  website: https://cyrilzhang.com/
+  status: former

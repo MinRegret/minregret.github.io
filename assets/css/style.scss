@@ -1,0 +1,38 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+.navigation span {
+  padding-right: 0.5em;
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+.people-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.person {
+  flex: 1;
+  margin-right: 32px;
+  margin-bottom: 32px;
+  align-self: flex-start;
+}
+
+.person .info {
+  max-width: 128px;
+}
+
+.video {
+  margin-bottom: 32px;
+}

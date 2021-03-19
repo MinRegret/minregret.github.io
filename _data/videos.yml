@@ -1,0 +1,9 @@
+- title: Adaptive Regret for Control of Time-Varying Dynamics
+  description: Visualization of the AdaGPC algorithm vs a planning algorithm (iLQR) on the inverted pendulum (Paula Gradu and Edgar Minasyan, [paper](https://arxiv.org/abs/2007.04393)).
+  url: https://www.youtube.com/embed/yY75VbTV6qg
+- title: Provably Efficient Maximum Entropy Exploration
+  description: Visualization of the MaxEnt exploration algorithm (Karan Singh and Abby Van Soest) from [this paper](https://arxiv.org/abs/1812.02690).
+  url: https://www.youtube.com/embed/8P5b9HlaPGA
+- title: YouTube Playlist of talks on optimization/control
+  description: Link to the full playlist [here](https://www.youtube.com/playlist?list=PL17YZw0-XrtwhSGHP12RCe0TpFBmEQTf9).
+  url: https://www.youtube.com/embed/f0qQsz4-o68
