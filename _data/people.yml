@@ -11,6 +11,10 @@
   title: Visiting Faculty, Assistant Professor of Mechanical and Aerospace Engineering at Princeton University
   website: https://irom-lab.princeton.edu/majumdar/
   status: current
+- name: Jason Lee
+  title: Visiting Faculty, Assistant Professor of Electrical and Computer Engineering and of Computer Science
+  website: https://jasondlee88.github.io/
+  status: current
 - name: Naman Agarwal
   title: Research Scientist at Google
   website: https://naman33k.github.io/
@@ -45,6 +49,10 @@
   status: current
 
 # Former members
+- name: Sham Kakade
+  title: Research Scientist at Microsoft, Professor of Computer Science and of Statistics at University of Washington
+  website: https://homes.cs.washington.edu/~sham/
+  status: former
 - name: Karan Singh
   title: Postdoctoral Researcher at Microsoft
   website: https://i-am-karan-singh.github.io/
