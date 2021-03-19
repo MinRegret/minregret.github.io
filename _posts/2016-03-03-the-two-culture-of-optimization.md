@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The two cultures of optimization
-authors: [elad_hazan]
+authors: [elad]
 mathjax: true
 ---
 

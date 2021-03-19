@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Worst-case vs. average-case learning"
-authors: [elad_hazan]
+authors: [elad]
 ---
 
 Classical statistical learning theory deals with finding a consistent hypothesis given sufficiently many examples. Such a hypothesis may be a rule for classifying emails into spam/not-spam, and examples are classified emails.
