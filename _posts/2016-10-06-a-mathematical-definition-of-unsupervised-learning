@@ -1,0 +1,41 @@
+---
+layout: post
+title: A mathematical definition of unsupervised learning?
+authors: [elad]
+---
+
+Extracting structure from data is considered by many to be the frontier of machine learning. Yet even defining "structure", or the very goal of learning structure from unlabelled data, is not well understood or rigorously defined.
+
+In this post we'll give a little background to unsupervised learning and argue that, compared to supervised learning, we lack a well-founded theory to tackle even the most basic questions. In the next post, we'll introduce a new candidate framework.
+
+Unsupervised learning is a commonplace component of many undergraduate machine learning courses and books. At the core, the treatment of unsupervised learning is a collection of methods for analyzing data and extracting hidden structure from this data.  Take for example [John Duchi's "Machine Learning" course at Stanford](http://cs229.stanford.edu/schedule.html). Under "Unsupervised learning", we have the topics: Clustering, K-means, EM. Mixture of Gaussians, Factor analysis, PCA (Principal components analysis), ICA (Independent components analysis). This is an excellent representation of the current state-of-the-art:
+
+-   Clustering and K-means:  by grouping "similar" elements together, usually according to some underlying metric, we can create artificial "labels" for data elements in hope that this rough labelling will be of future use, either in a supervised learning task on the same dataset, or in "understanding" the data. K-means is a widely used algorithm for finding k representative centers of the data, allowing for k "labels".
+-   Mixture of Gaussians: an exemplary and widely used method stemming from the generative approach to unsupervised learning. This approach stipulates that the data is generated from a distribution, in this case a mixture of normal random variables. There are numerous algorithms for finding the centers of these Gaussians, thereby learning the structure of the data.
+-   Factor analysis, PCA and ICA: the spectral approach to unsupervised learning is perhaps the most widely used, in which the covariance matrix of the data is approximated by the largest few singular vectors. This type of clustering is widely successful in text (word embeddings) and many other forms of data. 
+
+The above techniques are widely used and successful in practice, and under suitable conditions polynomial-time algorithms are known. The common thread amongst them is finding structure in the data, which turns out for many practical applications to be useful in a variety of supervised learning tasks.
+
+Notable unsupervised learning techniques that are missing from the above list are Restricted Boltzman machines (RBMs), Autoencoders and Dictionary Learning (which was conceived in the context of deep neural networks). The latter techniques attempt to find a succinct representation of the data. Various algorithms and heuristics for RBMs, Autotencoders and Dictionary Learning exist, but these satisfy at least one of the following:
+
+1) come without rigorous performance guarantees.
+
+2) run in exponential time in the worst case.
+
+3) assume strong generative assumptions about the input.
+
+Recent breakthroughs in polynomial time unsupervised learning due to Sanjeev and his group address points (1) & (2) above and require only (3). Independently the same is also achievable by the method of moments, see e.g. [this paper](http://arxiv.org/abs/1210.7559), originally from Sham's group @ MSR New England, and many more recent advances. What's the downside of this approach? The Arora-Hazan debate over this point, which the theory-ML students are exposed to in our weekly seminar, is subject for a longer post...
+
+What is missing then? Compare the above syllabus with that of supervised learning, in most undergrad courses and books, the difference in terms of theoretical foundations is stark. For supervised learning  we have Vapnik's statistical learning theory --  a deep and elegant mathematical theory that classifies exactly the learnable from labeled real-valued examples. Valiant's computational learning theory adds the crucial element of computation, and over the combined result we have hundreds of scholarly articles describing in detail problems that are learnable efficiently / learnable but inefficiently /  improperly learnable / various other notions.
+
+Is there meaning, in pure mathematical sense such as Vapnik and Valiant instilled into supervised learning, to the unsupervised world?
+
+I like to point out in my ML courses that computational learning theory say something philosophical about science: the concept of "learning", or a "theory" such as a physical theory of the world, has a precise mathematical meaning independent of humans. While many of us scientists seek a "meaningful" theory in the human sense, there need not be one! It could very well be that a physical theory, for example that of condensed matter, has a "theory" in the Vapnik-Valiant sense, but not one that would be as "meaningful" and "elegant" in the [Feynman](https://www.ted.com/talks/richard_feynman) sense.
+
+How can we then, give mathematical meaning to unsupervised learning in a way that:
+
+1.  Allows natural notions of generalization from examples
+2.  Improves future supervised learning tasks regardless of their nature
+3.  Allows for natural family of algorithms (hopefully but not necessarily -- based on convex optimization)
+
+This will be the starting point for our next post...

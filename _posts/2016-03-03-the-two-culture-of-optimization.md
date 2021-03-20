@@ -23,7 +23,7 @@ In this groundbreaking work drawing out the connections between the cooling of m
 
 In a recent [paper](http://arxiv.org/abs/1507.02528), we have discovered a close connection between the two methodologies. Roughly speaking, for constrained convex optimization problems, the iterates of Newton's method lie on the same path as the means of the consecutive distributions of simulated annealing. This is depicted in the picture below. Besides the intriguing connection, this discovery yields algorithmic benefits as well: a faster convex optimization algorithm for the most general input access model, and a resolution of a open problem in interior point methods.
 
-{% assign image-link = "/assets/img/2016-03-03-heatpath_with_samples.png" %}
+{% assign image = "2016-03-03-heatpath_with_samples.png" %}
 {% include center-image.html %}
 
 We continue with a more detailed description of path-following interior point methods, simulated annealing, and finally a discussion of the consequences.
