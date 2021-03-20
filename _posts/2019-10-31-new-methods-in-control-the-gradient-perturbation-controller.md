@@ -19,7 +19,7 @@ Linear Dynamical Systems and Optimal Control
 
 Dynamical systems constitute the formalism to describe time-dependent, dynamic real-world phenomenon, ranging from fluid flow through a pipe, the movement of a pendulum, to the change of weather. The archetypal example here is a linear dynamical system, which permits a particularly intuitive interpretation as a (configurable) vector field (from [wikipedia](https://en.wikipedia.org/wiki/Dynamical_system)):
 
-{% assign image = "null.png" %}
+{% assign image = "2019-10-31-null.png" %}
 {% include center-image.html %}
 
 A linear dynamical system (LDS) posits the state of a system evolves via the following dynamical relation:
@@ -74,14 +74,14 @@ The Gradient Perturbation Controller
 
 Consider how the choice of the linear controller determines the control input.
 
-{% assign image = "null-1.png" %}
+{% assign image = "2019-10-31-null-1.png" %}
 {% include center-image.html %}
 
 The above display demonstrates that the action, state, and hence the cost are non-convex functions of the linear controller K. The first piece of our result evades this lack of convexity by over-parametrization, ie. relaxing the notion of a linear policy as described next.
 
 In place of learning a direct representation of a linear controller K, we learn a sequence of matrices $$M_1, M_2 \ldots $$ which represent the dependence of $$u_t$$ on $$w_{t - i}$$ under the execution of some linear policy. Schematically, we parameterize our policy as follows
 
-{% assign image = "null.png-2" %}
+{% assign image = "2019-10-31-null-2.png" %}
 {% include center-image.html %}
 
 Note that, the assumption that the dynamics is known permits the exact inference of $$w_t$$'s and thereby making the execution of such a controller possible. While the choice of the controller ensures that control inputs are linear in $$\{M_i\}$$, the superposition principle for linear dynamical systems ensures that the state sequence too is linear in the same variables. Therefore, the cost of execution of such a controller parameterized via $$\{M_i\}$$ is convex and we can hope to learn them using standard techniques like Gradient Descent. Observe that, by construction, it is possible to emulate the behavior any linear controller K by a suitable choice of $$\{M_i\}$$'s.
@@ -94,7 +94,7 @@ $$c_t(M_1, \ldots M_H) = \textrm{Cost Paid at Time }t\textrm{, had we execute t
 
 The algorithm now as suggested by [Anava, Hazan and Manor](https://arxiv.org/abs/1302.6937), is to take a gradient step on the above proxy.
 
-{% assign image = "null.png-3" %}
+{% assign image = "2019-10-31-null.png-3" %}
 {% include center-image.html %}
 
 The above algorithm achieves $$O(\sqrt{T})$$ regret against worst-case noise. For the full proof and the precise derivation of the algorithm, check out the paper.
@@ -115,23 +115,22 @@ Below we provide empirical evaluations of the GPC controller in various scenario
 
 To start, let's reproduce the classical setting of controlling an LDS with i.i.d. Gaussian noise. Here, the LQR program is *optimal*. Yet, the plot below attests that our new control methodology offers a slightly suboptimal, yet comparable, performance. This observation also underlines the message the the proposed controller tracks the optimal controller without any foreknowledge of the structure of the perturbations. Here, for example, GPC is not made aware of the i.i.d. nature of the perturbations.
 
-{% assign image = "null-4.png" %}
+{% assign image = "2019-10-31-null-4.png" %}
 {% include center-image.html %}
 
 Moving on to correlated perturbations across time, a simple such setting is when the perturbations are drawn from a Gaussian Random Walk (as opposed to independent Gaussians). Note that here it is possible to derive the *optimal *controller via the separation principle. Here is the performance plot:
 
-{% assign image = "null-5.png" %}
+{% assign image = "2019-10-31-null-5.png" %}
 {% include center-image.html %}
-================================================================================
 
 Note that the default LQR controller performs much worse, where as GPC is able to track the performance of the optimal controller quite closely. Next up, sinusoidal noise:
 
-{% assign image = "null-6.png" %}
+{% assign image = "2019-10-31-null-6.png" %}
 {% include center-image.html %}
 
 Here the full power of regret minimization is exhibited as the consecutive samples of the sine function are very correlated, yet predictable. GPC vastly outperforms LQR as one would expect. But, is this fundamentally a hard setting? What would happen if we use the H-infinity controller, or, god forbid, no control at all? We see this in the next plot (on the log-linear scale):
 
-{% assign image = "null-7.png" %}
+{% assign image = "2019-10-31-null-7.png" %}
 {% include center-image.html %}
 
 What's next?
