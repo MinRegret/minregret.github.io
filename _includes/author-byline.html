@@ -5,3 +5,5 @@
 {% else %}
   {% assign author_byline = author %}
 {% endif %}
+
+{% assign author_byline = author_byline | strip %}

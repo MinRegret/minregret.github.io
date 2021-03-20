@@ -2,33 +2,23 @@
 layout: default
 ---
 
-<!-- Look the author details up from the site config. -->
-{% if page.authors %}
-  {% for author in page.authors %}
+<!-- Look the author details up _data/people.yml. -->
+{% assign authors = page.authors | default: site.authors %}
+{% assign byline = "" | split: ',' %}
 
-    {% include author-byline.html %}
-    {% if forloop.first %}
-      {% assign byline = author_byline %}
-    {% else %}
-      {% capture byline %}
-        {{ byline | strip }}, {{ author_byline }}
-      {% endcapture %}
-    {% endif %}
-
-  {% endfor %}
-{% else %}
-  {% assign author = site.author %}
-  {% capture byline %}<a href='{{ author.website }}'>{{ author.name }}</a>{% endcapture %}
-{% endif %}
-
+{% for author in authors %}
+  {% include author-byline.html %}
+  {% assign byline = byline | push: author_byline %}
+{% endfor %}
 
 <small>{{ page.date | date: "%-d %B %Y" }}</small>
 <h1>{{ page.title }}</h1>
 
-<p class="view">by {{ byline }}</p>
+<p class="view">by {{ byline | join: ", " }}</p>
 
 {{content}}
 
 {% if page.tags %}
   <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+  <br>
 {% endif %}

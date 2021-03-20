@@ -30,7 +30,6 @@ first:
 2. Copy and paste the following at the beginning
 ```yaml
 ---
-layout: post
 title: "A great post on an even greater subject"
 authors: [elad, cyril]
 ---
