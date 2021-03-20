@@ -50,7 +50,7 @@ In [recent work](https://arxiv.org/abs/1812.02690), we propose finding a policy
 
 In the video below, a two-dimensional cheetah robot learns to run backwards and forwards, move its legs fast and in all different directions, and even do flips. The cheetah doesn't have access to any external rewards; it only uses signals from the MaxEnt policy.
 
-<iframe width="560" height="315" src="https://videopress.com/v/ro0BDWO4" frameborder="0" allowfullscreen></iframe> <script src="https://videopress.com/videopress-iframe.js"></script>
+<iframe src="https://videopress.com/v/ro0BDWO4" frameborder="0" allowfullscreen></iframe> <script src="https://videopress.com/videopress-iframe.js"></script>
 
 Entropy is a function of the distribution over states. A high entropy distribution visits all states with near-equal frequency --- it's a *uniform* distribution. On the other hand, a low entropy distribution is biased toward visiting some states more frequently than others. (In the maze example, a low entropy distribution would result from the agent sitting at the entrance of the maze forever.)
 

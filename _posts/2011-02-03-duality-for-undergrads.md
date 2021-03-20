@@ -29,7 +29,7 @@ Here $$M$$ is the game payoff matrix (payoffs to the row player and costs to the
 
 Consider a repeated game, in which the row player constructs $$p_t$$ at each iteration $$t \in [T]$$ according to an experts' algorithm. An experts algorithm guarantees the following: (this is the definition of an experts' algorithm)
 
-$$ \frac{1}{T} \sum_t p_t^T M q_t \geq \frac{1}{T} \max_{p_*} \sum_t p_*^T M q_t  -- o(1) $$
+$$ \frac{1}{T} \sum_t p_t^T M q_t \geq \frac{1}{T} \max_{p_*} \sum_t p_*^T M q_t  - o(1) $$
 
 Here $$t=1,2,...,T$$ are the iterations of the repeated game, $$p_t$$ is the experts' mixed strategy at time $$t$$, and $$q_t$$ can be anything.
 
@@ -45,10 +45,10 @@ $$ \min_q \bar{p}^T M q \geq \frac{1}{T} \sum_t p_t M q_t$$
 
 where $$q_t = \arg \min_q p_t^T M q$$. By the low regret property we have
 
-$$ \frac{1}{T} \sum_t p_t^T M q_t \geq \max_p \frac{1}{T} \sum_t p^T M q_t -- o(1) $$
+$$ \frac{1}{T} \sum_t p_t^T M q_t \geq \max_p \frac{1}{T} \sum_t p^T M q_t - o(1) $$
 
-Hence: $$ \frac{1}{T} \sum_t p_t M q_t \geq \max_p \frac{1}{T} \sum_t p M q_t -- o(1) \geq \min_q \max_p p^T M q -- o(1) $$
+Hence: $$ \frac{1}{T} \sum_t p_t M q_t \geq \max_p \frac{1}{T} \sum_t p M q_t - o(1) \geq \min_q \max_p p^T M q - o(1) $$
 
 Overall we got:
 
-$$\lambda_A \geq \lambda_B -- o(1)$$ as needed.
+$$\lambda_A \geq \lambda_B - o(1)$$ as needed.
