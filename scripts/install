@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+bundle install
+
+echo "Done installing. Please close this terminal window and open another!"

@@ -8,7 +8,7 @@ A website for the Google Princeton AI and the Hazan Lab @ Princeton University.
 Navigate to the file you'd like to edit or click the drop-down `Add file` and start typing. Click the green button once you're done editing to commit your changes.
 
 ### Running the website on your laptop (harder)
-Clone this repository and then follow the instructions [here](https://jekyllrb.com/docs/).
+Clone this repository and then run `./scripts/install` from this directory. Depending on your setup, you may need `sudo`.
 
 ## FAQ
 
