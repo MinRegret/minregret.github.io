@@ -12,7 +12,7 @@ samory:
 anirudha:
   name: Anirudha Majumdar
   title: Visiting Faculty, Assistant Professor of Mechanical and Aerospace Engineering at Princeton University
-  website: https://irom lab.princeton.edu/majumdar/
+  website: https://irom-lab.princeton.edu/majumdar/
   status: current
 jason:
   name: Jason Lee
@@ -52,19 +52,19 @@ daniel:
 alex:
   name: Alex Yu
   title: Software Engineer at Google
-  website: https://www.linkedin.com/in/alexander yu 8ba037163/
+  website: https://www.linkedin.com/in/alexander-yu-8ba037163/
   status: current
 paula:
   name: Paula Gradu
   title: Undergraduate Student at Princeton University
-  website: https://paula gradu.github.io/
+  website: https://paula-gradu.github.io/
   status: current
 
 # Former members
 karan:
   name: Karan Singh
   title: Postdoctoral Researcher at Microsoft
-  website: https://i am karan singh.github.io/
+  website: https://i-am-karan-singh.github.io/
   status: former
 cyril:
   name: Cyril Zhang
@@ -99,7 +99,7 @@ brian:
 abby:
   name: Abby Van Soest
   title: Software Engineer at Google
-  website: https://www.linkedin.com/in/abby van soest 148953109/
+  website: https://www.linkedin.com/in/abby-van-soest-148953109/
   status: former
 zeyuan:
   name: Zeyuan Allen-Zhu
