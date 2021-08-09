@@ -44,6 +44,11 @@ udaya:
   title: Graduate Student at Princeton University
   website: https://www.cs.princeton.edu/~ughai/
   status: current
+wenhan:
+  name: Wenhan Xia
+  title: Graduate Student at Princeton University
+  website: https://ece.princeton.edu/people/wenhan-xia
+  status: current
 daniel:
   name: Daniel Suo
   title: Software Engineer at Google
@@ -54,13 +59,13 @@ alex:
   title: Software Engineer at Google
   website: https://www.linkedin.com/in/alexander-yu-8ba037163/
   status: current
+
+# Former members
 paula:
   name: Paula Gradu
   title: Undergraduate Student at Princeton University
   website: https://paula-gradu.github.io/
-  status: current
-
-# Former members
+  status: former
 karan:
   name: Karan Singh
   title: Postdoctoral Researcher at Microsoft
