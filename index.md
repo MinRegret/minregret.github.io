@@ -4,12 +4,19 @@ title: About
 ---
 # About
 
-This website details research done at the [Hazan group](https://www.cs.princeton.edu/~ehazan/) at Princeton University. Some of this research is also in collaboration with [Google Brain Princeton](https://sites.google.com/view/gbrainprinceton/home).
+This website details research done at the [Hazan group](https://www.cs.princeton.edu/~ehazan/) at Princeton University. 
+We conduct research in machine learning, mathematical optimziation, control theory and game theory, more details in ##Research. 
 
+Some of this research is also in collaboration with [Google Brain Princeton](https://sites.google.com/view/gbrainprinceton/home). 
+
+
+<!--
 ## Projects
 We are currently working on several projects, including two longer-term efforts:
 1. **[deluca](http://deluca.fyi)**: An OpenAI Gym inspired library that provides differentiable environments, agents that take advantage of such environments, and benchmarking tools.
 2. **[deluca-lung](https://arxiv.org/pdf/2102.06779.pdf)**: Machine learning for mechanical ventilator control.
+-->
+
 
 ## Photos
 Summer 2019:
