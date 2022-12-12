@@ -4,8 +4,8 @@ title: About
 ---
 # About
 
-This website details research done at the [Hazan group](https://www.cs.princeton.edu/~ehazan/) at Princeton University. 
-We conduct research in machine learning, mathematical optimziation, control theory and game theory, more details in ##Research. 
+This website details research done at the [Hazan group](https://www.ehazan.com/) at Princeton University. 
+We conduct research in machine learning, mathematical optimziation, control theory and game theory, more details [here](https://www.minregret.com/research/). 
 
 Some of this research is also in collaboration with [Google Brain Princeton](https://sites.google.com/view/gbrainprinceton/home). 
 
