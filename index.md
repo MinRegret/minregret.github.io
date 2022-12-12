@@ -4,7 +4,7 @@ title: About
 ---
 # About
 
-This website details research done at the [Hazan group](https://www.cs.princeton.edu/~ehazan/) at Princeton University and [Google AI Princeton](https://ai.googleblog.com/2018/12/google-ai-princeton-current-and-future.html).
+This website details research done at the [Hazan group](https://www.cs.princeton.edu/~ehazan/) at Princeton University. Some of this research is also in collaboration with [Google Brain Princeton](https://sites.google.com/view/gbrainprinceton/home).
 
 ## Projects
 We are currently working on several projects, including two longer-term efforts:
