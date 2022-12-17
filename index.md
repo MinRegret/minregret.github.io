@@ -18,8 +18,7 @@ We are currently working on several projects, including two longer-term efforts:
 -->
 
 
-## Photos
-Summer 2019:
+## Our group in Summer 2019
 
 ![Summer 2019 0](/assets/img/2019-summer-0.jpg)
 <!--
