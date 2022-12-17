@@ -22,6 +22,8 @@ We are currently working on several projects, including two longer-term efforts:
 
 ![Summer 2019 0](/assets/img/2019-summer-0.jpg)
 
+.
+
 <!--
 
 Sham's futile attempt to pass to Yoav:
