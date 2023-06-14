@@ -69,19 +69,11 @@ Here is an illustrative example: consider an optimization task of linear regress
 
 Consider a restricted setting of learning the best optimizer, where we are given an optimization problem with T fixed learning rate gradient descent iterations, and the goal is to find the best learning rate to minimize the objective function at the last iteration. Finding the optimal gradient descent learning rate takes the form of the following minimization problem:
 
-  
-
-$\min_\eta f(x_T),\ \ \text{subject to } x_{t+1} = x_t - \eta\nabla f(x_t).$
-
-  
+$$\min_\eta f(x_T),\ \ \text{subject to } x_{t+1} = x_t - \eta\nabla f(x_t).$$
 
 We can unroll the minimization objective from the initial point $x_1$,
 
-  
-
 $$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta\sum_{t=2}^{T-1} \nabla f(x_t)) = f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$$
-
-  
 
 From this expression, it is clear that $f(x_T)$ is a nonconvex function of $\eta$. This means that the natural approach of applying FOM to the learning rate itself, a.k.a. Hypergradient descent, is not guaranteed to converge to global optimality.
 
@@ -111,17 +103,12 @@ Let’s start from the textbook basics: stochastic gradient descent for non-smoo
 
 SGD has the following update rule
 
-  
-
-$x_{t+1} \leftarrow x_t - \eta \tilde{\nabla}_t$
+$$x_{t+1} \leftarrow x_t - \eta \tilde{\nabla}_t$$
 
   
 
 Where $ \tilde{\nabla}_t $ is a random estimator for the gradient (given by usually looking at only a few examples out of the training set). The textbook proof says that SGD for non-smooth convex optimization converges to the optimal solution at a rate of
-
-  
-
-$O(\frac{ \sqrt{ \sigma^2 } }{\sqrt{T} } )$
+$O(\frac{ \sqrt{ \sigma^2 } }{\sqrt{T} } )$.
 
   
 
