@@ -26,7 +26,8 @@ The developments in mathematical programming that led to AGM and its refinements
 
   
 
-## CAN WE AUTOMATICALLY FIND THE BEST OPTIMIZER FOR A GIVEN TASK?
+## CAN WE AUTOMATICALLY FIND THE  
+BEST OPTIMIZER FOR A GIVEN TASK?
 
   
 
@@ -78,7 +79,9 @@ We can unroll the minimization objective from the initial point $x_1$,
 
   
 
-$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta \sum_{t=2}^{T-1} \nabla f(x_t)) = f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$
+$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta\sum_{t=2}^{T-1} \nabla f(x_t))
+= f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$
+
   
 
 From this expression, it is clear that $f(x_T)$ is a nonconvex function of $\eta$. This means that the natural approach of applying FOM to the learning rate itself, a.k.a. Hypergradient descent, is not guaranteed to converge to global optimality.
@@ -199,7 +202,7 @@ The relationship between control and optimization spans decades: even the names 
 
 The analysis of mathematical optimization algorithms often makes use of control methodology. The most common application is that of the Lyapunov direct method for analyzing stability of a dynamical system. Lyapunov's direct method involves creating an energy or potential function, also called the ``Lyapunov function". This function needs to be non-increasing along the trajectory of the dynamics, and strictly positive for states other than the equilibrium (global minimum for an optimization problem) to certify the stability of the system. A common example given in introductory courses on dynamics is that of the motion equations of the pendulum.
 
-![](https://lh3.googleusercontent.com/v2VizizQkrbO_m2c3Cm0J3GHDSOCw_EuOeh8emceSATb-a39sA16eg0wzhWMPwy6ow-WZ2qTbrdFIFtz0P2PntgVHJ8yyiNcoSoc-iXrBRxYe-SjL5gSOJoG0NXvOOIl47Y9XzQ1DXdMwjQTAzEW3_I)
+![](https://lh6.googleusercontent.com/PP9GPrqyjvSvWvKlBLV--IGLy5DdP4UH5NI-Y0vLGO_DeEGTyU8s8XPGqBhIWSIK0IGKJHUohPuV72A8CMyTETYz6_YknY9CJhIPSrHWhK_MgrKzKXLHGL7h93v4nHiwPYu7m8-E-NJ94X6jlH5Gsek)
 
 The Lyapunov function for this system is taken to be the total energy, kinetic and potential. [Tedrake’s book provides an excellent exposition](https://underactuated.csail.mit.edu/).
 
