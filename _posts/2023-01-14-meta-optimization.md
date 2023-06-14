@@ -78,7 +78,7 @@ We can unroll the minimization objective from the initial point $x_1$,
 
   
 
-$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta\sum_{t=2}^{T-1} \nabla f(x_t)) = f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$
+$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta \sum_{t=2}^{T-1} \nabla f(x_t)) = f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$
   
 
 From this expression, it is clear that $f(x_T)$ is a nonconvex function of $\eta$. This means that the natural approach of applying FOM to the learning rate itself, a.k.a. Hypergradient descent, is not guaranteed to converge to global optimality.
