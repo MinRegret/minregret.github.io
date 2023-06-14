@@ -79,8 +79,7 @@ We can unroll the minimization objective from the initial point $x_1$,
 
   
 
-$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta\sum_{t=2}^{T-1} \nabla f(x_t))
-= f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$
+$$f(x_T) = f(x_1 - \eta\nabla f(x_1) - \eta\sum_{t=2}^{T-1} \nabla f(x_t)) = f(x_1 - \eta\nabla f(x_1) - \eta \nabla f(x_1 - \eta\nabla f(x_1)) - ...)$$
 
   
 
