@@ -4,7 +4,7 @@ authors: [xinyi, elad]
 layout: post
 ---
 
-The study of mathematical optimization is a hallmark of the application of the scientific method to almost all engineering fields. With the rise of machine learning, methods shifted from interior point methods based on Newton’s methods to first order methods (FOM). The most popular and efficient FOM are adaptive gradient methods (AGM), [see chapter 6 of lecture notes here](https://arxiv.org/pdf/1909.03550.pdf) and explanations below.
+The study of mathematical optimization is a hallmark of the application of the scientific method to almost all engineering fields. With the rise of machine learning and large scale problems, attention shifted from interior point methods based on Newton’s methods to first order methods (FOM). The most popular and efficient FOM are adaptive gradient methods (AGM), [see chapter 6 of lecture notes here](https://arxiv.org/pdf/1909.03550.pdf) and explanations below.
 
 Recent refinements to FOM, that are motivated by AGM, are adaptations that remove the need for fine-tuning of parameters. These include a flurry of recent papers, to give a short list:  
 1. [coin-betting methods](https://arxiv.org/abs/1602.04128)
@@ -212,6 +212,7 @@ From a theoretical perspective, the goal is to obtain the optimal regret bound f
 3. Black-box reduction via online balancing as per [Mechanic](https://arxiv.org/pdf/2306.00144.pdf)
 4. Adaptive regret in [SAMUEL](https://arxiv.org/pdf/2203.01400.pdf)
 
-Given these motivations, the meta-optimization methodology addresses a significantly more general problem via different tools, and encompasses the learning of hyperparameters as well as preconditioners.
+The motivation for these recent developments goes back to the original question we started with: CAN WE AUTOMATICALLY FIND THE BEST OPTIMIZER FOR A GIVEN TASK? 
+The [meta-optimization methodology](https://arxiv.org/abs/2301.07902) addresses a significantly more general problem via different tools, and encompasses the learning of hyperparameters as well as preconditioners.
 
 We hope this was a fun introduction to a new approach for learning the best algorithm, for more details, [please see the full paper](https://arxiv.org/abs/2301.07902)!
