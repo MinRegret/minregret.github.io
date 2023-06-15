@@ -13,7 +13,7 @@ title: Research
 
   Recent additions include  [Non-Stochastic Control with Bandit Feedback](https://arxiv.org/pdf/2008.05523) , [Black-Box Control for Linear Dynamical Systems](https://arxiv.org/pdf/2007.06650) , [Adaptive Regret for Control of Time-Varying Dynamics](https://arxiv.org/pdf/2007.04393)
 
-  For a survey, see [these lecture notes](https://sites.google.com/view/cos59x-cct/lecture-notes).
+  For a survey, see [this book draft](https://arxiv.org/abs/2211.09619).
 
 - Combining time series and control algorithms via the new technique of [Boosting for Dynamical Systems](https://arxiv.org/abs/1906.08720).
 
