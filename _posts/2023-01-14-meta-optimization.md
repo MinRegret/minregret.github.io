@@ -8,15 +8,10 @@ The study of mathematical optimization is a hallmark of the application of the s
 
 Recent refinements to FOM, that are motivated by AGM, are adaptations that remove the need for fine-tuning of parameters. These include a flurry of recent papers, to give a short list:  
 1. [coin-betting methods](https://arxiv.org/abs/1602.04128)
-
 2. [D-adaptation](https://arxiv.org/abs/2301.07733)
-
 3. [DoG optimizer](https://arxiv.org/abs/2302.12022)
-
-4. [Mechanic learning rate tuner](https://arxiv.org/pdf/2306.00144.pdf),
-
-5. [SAMUEL method based on adaptive regret](https://arxiv.org/pdf/2203.01400.pdf),
-
+4. [Mechanic learning rate tuner](https://arxiv.org/pdf/2306.00144.pdf)
+5. [SAMUEL method based on adaptive regret](https://arxiv.org/pdf/2203.01400.pdf)
 and more that we have not covered here.
 
   
