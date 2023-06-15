@@ -124,7 +124,7 @@ Thus, it is reasonable to change the SGD update rule to the more robust
 
 $$x_{t+1} \leftarrow x_t - D_t \nabla_t ,$$
 
-where $ D_t$ is a diagonal matrix that contains in coordinate $ (i,i)$ the learning rate for coordinate i in the gradient. Thus, the robust version of stochastic gradient descent should behave as the above equation, with the empirical variance on the diagonal of D_t,
+where $D_t$ is a diagonal matrix that contains in coordinate $(i,i)$ the learning rate for coordinate i in the gradient. Thus, the robust version of stochastic gradient descent should behave as the above equation, with the empirical variance on the diagonal of $D_t$,
 
 $$D_t(i,i) = \frac{1}{\sqrt{\sum_{i < t} \nabla_t(i)^2}} .$$
 
