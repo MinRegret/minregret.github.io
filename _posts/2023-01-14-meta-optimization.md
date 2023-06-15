@@ -1,4 +1,6 @@
-# Meta Optimization, adaptive gradient methods and parameter-free optimization
+---
+title: Meta Optimization, adaptive gradient methods and parameter-free optimization
+---
 
 by Xinyi Chen and Elad Hazan
 
