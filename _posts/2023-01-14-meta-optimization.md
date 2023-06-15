@@ -26,8 +26,7 @@ The developments in mathematical programming that led to AGM and its refinements
 
   
 
-## CAN WE AUTOMATICALLY FIND THE  
-BEST OPTIMIZER FOR A GIVEN TASK?
+## CAN WE AUTOMATICALLY FIND THE BEST OPTIMIZER FOR A GIVEN TASK?
 
   
 
