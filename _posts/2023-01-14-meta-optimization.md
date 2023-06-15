@@ -50,7 +50,7 @@ At each step, the optimizer suffers instantaneous costs, and the goal is to comp
 
   
 
-Here is an illustrative example: consider an optimization task of linear regression over random data, i.i.d. sampled from the same distribution. Such an interesting setting was proposed in [this paper](https://arxiv.org/abs/2002.04756), where the motivation was to design the best FOM for a certain data distribution in linear regression problems. The plot below shows training error decrease as a function of time, where the error bars represent different trials. The band around meta-optimization shows that over time, the algorithm’s performance improves; meanwhile, there is almost no variation around the performance of the other methods. The meta-optimization approach improves over time as it learns the best optimizer for the task. Below we explain our approach in more detail.
+Here is an illustrative example: consider an optimization task of linear regression over random data, i.i.d. sampled from the same distribution. Such an interesting setting was proposed in [this paper](https://arxiv.org/abs/2002.04756) by Pedregosa and Scieur, where the motivation was to design the best FOM for a certain data distribution in linear regression problems. The plot below shows training error decrease as a function of time, where the error bars represent different trials. The band around meta-optimization shows that over time, the algorithm’s performance improves; meanwhile, there is almost no variation around the performance of the other methods. The meta-optimization approach improves over time as it learns the best optimizer for the task. Below we explain our approach in more detail.
 
   
 
