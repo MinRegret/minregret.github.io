@@ -14,9 +14,6 @@ Recent refinements to FOM, that are motivated by AGM, are adaptations that remov
 5. [SAMUEL method based on adaptive regret](https://arxiv.org/pdf/2203.01400.pdf)
 
 and more that we have not covered here.
-
-  
-
 The developments in mathematical programming that led to AGM and auto parameter tuning is rooted in the following fundamental question:
 
   
@@ -206,23 +203,16 @@ The machine learning specialist has an equally obvious answer: can we learn the 
 
 Anyone with practical experience in optimization is aware of the need for hyperparameter tuning. Virtually all algorithms come with tunable parameters, and the practitioner needs to set these correctly to attain optimal behavior. Can we avoid this practice, and come up with completely automated methods?
 
-  
-
+ 
 This is a closely related question to the one we started with! Indeed, the relationship is more than superficial: the motivation for AGM is to automate the choice of the preconditioner. This solves part of the tuning problem, but the “scale” term remains, which is closely related to the distance of the initial point from the global optimum.
 
-  
 
 From a theoretical perspective, the goal is to obtain the optimal regret bound for online learning, which online gradient descent / Adagrad obtains depending on the geometry of the problem. However, not knowing the initial distance to optimality introduces a log(distance) term to the regret bound of Theorem 3.1 [in this book](https://arxiv.org/pdf/1909.05207.pdf). Removing this log term requires sophisticated machinery and different approaches have been applied, e.g.
 
 1. [coin-betting methods](https://arxiv.org/abs/1602.04128)
-
 2. using the empirical distance in lieu of diameter as per [D-adaptation](https://arxiv.org/abs/2301.07733), [DoG optimizer](https://arxiv.org/abs/2302.12022)
-
 3. Black-box reduction via online balancing as per [Mechanic](https://arxiv.org/pdf/2306.00144.pdf)
-
 4. Adaptive regret in [SAMUEL](https://arxiv.org/pdf/2203.01400.pdf)
-
-  
 
 Given these motivations, the meta-optimization methodology addresses a significantly more general problem via different tools, and encompasses the learning of hyperparameters as well as preconditioners.
 
