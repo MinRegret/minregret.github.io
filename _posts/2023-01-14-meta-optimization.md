@@ -236,7 +236,7 @@ $$\text{meta-regret}(A) = \sum_{i=1}^N J_i(A) - \min_{A^* \in \Pi} \sum_{i=1}^N 
 
   
 
-In a recent paper, we give efficient methods based on the [GPC](https://proceedings.mlr.press/v97/agarwal19c.html) that guarantee meta-regret that scales as $O(\sqrt{NT})$ for meta optimization of quadratic functions. If the functions are smooth, the method has meta-regret scaling as $O({NT}^{¾})$ in expectation. In certain settings, this captures learning the learning rate for smooth optimization as a special case!
+In a recent paper, we give efficient methods based on the [GPC](https://proceedings.mlr.press/v97/agarwal19c.html) that guarantee meta-regret that scales as $O(\sqrt{NT})$ for meta optimization of quadratic functions. If the functions are smooth, the method has meta-regret scaling as $O((NT)^{¾})$ in expectation. In certain settings, this captures learning the learning rate for smooth optimization as a special case!
 
   
 
