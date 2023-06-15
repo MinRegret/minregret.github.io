@@ -108,7 +108,7 @@ $$x_{t+1} \leftarrow x_t - \eta \tilde{\nabla}_t$$
 
   
 
-Where $$\tilde{\nabla}_t$$ is a random estimator for the gradient (given by usually looking at only a few examples out of the training set). The textbook proof says that SGD for non-smooth convex optimization converges to the optimal solution at a rate of
+Where $\tilde{\nabla}_t$ is a random estimator for the gradient (given by usually looking at only a few examples out of the training set). The textbook proof says that SGD for non-smooth convex optimization converges to the optimal solution at a rate of
 $$O(\frac{ \sqrt{ \sigma^2 } }{\sqrt{T} } ).$$
 
   
