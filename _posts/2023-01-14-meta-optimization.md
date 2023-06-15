@@ -5,7 +5,7 @@ by Xinyi Chen and Elad Hazan
   
   
 
-The study of mathematical optimization is a hallmark of the application of the scientific method to almost all engineering fields. With the rise of machine learning, methods shifted from interior point methods based on Newton’s methods to first order methods (FOM). The most popular and efficient FOM are adaptive gradient methods (AGM),[see chapter 4 of lecture notes here](https://sites.google.com/view/optimization4machinelearning/home) and also explained below.
+The study of mathematical optimization is a hallmark of the application of the scientific method to almost all engineering fields. With the rise of machine learning, methods shifted from interior point methods based on Newton’s methods to first order methods (FOM). The most popular and efficient FOM are adaptive gradient methods (AGM),[see chapter 6 of lecture notes here](https://arxiv.org/pdf/1909.03550.pdf) and also explained below.
 
 Recent refinements to FOM, that are motivated by AGM, are adaptations that remove the need for fine-tuning of parameters. These include a flurry of recent papers, to give a short list:  
 1. [coin-betting methods](https://arxiv.org/abs/1602.04128)
