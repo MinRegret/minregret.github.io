@@ -21,7 +21,7 @@ and more that we have not covered here.
 
   
 
-The developments in mathematical programming that led to AGM and its refinements is rooted in the following fundamental question:
+The developments in mathematical programming that led to AGM and auto parameter tuning is rooted in the following fundamental question:
 
   
 
