@@ -106,7 +106,7 @@ $$x_{t+1} \leftarrow x_t - \eta \tilde{\nabla}_t$$
 
   
 
-Where $ \tilde{\nabla}_t $ is a random estimator for the gradient (given by usually looking at only a few examples out of the training set). The textbook proof says that SGD for non-smooth convex optimization converges to the optimal solution at a rate of
+Where $\tilde{\nabla}_t$ is a random estimator for the gradient (given by usually looking at only a few examples out of the training set). The textbook proof says that SGD for non-smooth convex optimization converges to the optimal solution at a rate of
 $$O(\frac{ \sqrt{ \sigma^2 } }{\sqrt{T} } ).$$
 
   
@@ -225,7 +225,7 @@ The formal setting of meta-optimization is as follows. We are given a sequence o
 
   
 
-Specifically, in each of the $N$ episodes, we have a sequence of $T$ optimization steps that are either deterministic, stochastic, or online. At the beginning of an episode, the iterate is ``reset" to a given starting point $x_{1, i}$. In the most general formulation of the problem, at time $(t, i)$, an optimization algorithm $A$ chooses a point $x_{t, i} \in K$, in a convex domain $K \subseteq R^d$. It then suffers a cost $f_{t, i}(x_{t, i})$. Let $x_{t, i}(A)$ denote the point chosen by $A$ at time $(t, i)$, and for a certain episode $i \in [N]$, denote the cost of an optimization algorithm $A$ by
+Specifically, in each of the N episodes, we have a sequence of T optimization steps that are either deterministic, stochastic, or online. At the beginning of an episode, the iterate is ``reset" to a given starting point $x_{1, i}$. In the most general formulation of the problem, at time $(t, i)$, an optimization algorithm $A$ chooses a point $x_{t, i} \in K$, in a convex domain $K \subseteq R^d$. It then suffers a cost $f_{t, i}(x_{t, i})$. Let $x_{t, i}(A)$ denote the point chosen by $A$ at time $(t, i)$, and for a certain episode $i \in [N]$, denote the cost of an optimization algorithm $A$ by
 
 $$ J_i(A) = \sum_{t=1}^T f_{t, i}(x_{t, i}(A) ) - \min_{x^* \in K} \sum_t f_t^i(x^*) . $$
 
