@@ -1,6 +1,7 @@
 ---
 title: Meta Optimization, adaptive gradient methods and parameter-free optimization
 authors: [xinyi, elad]
+layout: post
 ---
 
 The study of mathematical optimization is a hallmark of the application of the scientific method to almost all engineering fields. With the rise of machine learning, methods shifted from interior point methods based on Newton’s methods to first order methods (FOM). The most popular and efficient FOM are adaptive gradient methods (AGM),[see chapter 6 of lecture notes here](https://arxiv.org/pdf/1909.03550.pdf) and also explained below.
