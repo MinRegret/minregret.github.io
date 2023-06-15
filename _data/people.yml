@@ -48,7 +48,7 @@ brian:
   status: former
 naman:
   name: Naman Agarwal
-  title: Research Scientist at Google
+  title: Research Scientist at Google Deep Mind
   website: https://naman33k.github.io/
   status: former
 karan:
@@ -65,4 +65,9 @@ paula:
   name: Paula Gradu
   title: Graduate Student at University of California at Berkeley
   website: https://paula-gradu.github.io/
+  status: former
+daniel:
+  name: Daniel Suo
+  title: Research Scientist at Google Deep Mind
+  website: https://www.danielsuo.com/
   status: former
