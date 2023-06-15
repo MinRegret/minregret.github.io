@@ -12,6 +12,7 @@ Recent refinements to FOM, that are motivated by AGM, are adaptations that remov
 3. [DoG optimizer](https://arxiv.org/abs/2302.12022)
 4. [Mechanic learning rate tuner](https://arxiv.org/pdf/2306.00144.pdf)
 5. [SAMUEL method based on adaptive regret](https://arxiv.org/pdf/2203.01400.pdf)
+
 and more that we have not covered here.
 
   
