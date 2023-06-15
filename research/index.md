@@ -18,7 +18,7 @@ title: Research
 
 - The [Spectral Filtering](https://arxiv.org/abs/1711.00946), technique, and its [application to asymmetric](https://arxiv.org/abs/1802.03981) linear dynamical systems.
 
-- Learning auto-regressive moving-average [time series with adversarial noise](http://proceedings.mlr.press/v30/Anava13.pdf).
+<!--- Learning auto-regressive moving-average [time series with adversarial noise](http://proceedings.mlr.press/v30/Anava13.pdf). -->
 
 - [Maximum-entropy exploration](https://arxiv.org/abs/1812.02690) in partially observed and/or approximated Markov Decision Processes.
 
