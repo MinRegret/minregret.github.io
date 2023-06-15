@@ -7,7 +7,7 @@ title: Research
 
 ## Control and Reinforcement Learning
 
-- A new framework for robust control called [Non-Stochastic Control](https://sites.google.com/view/cos59x-cct/lecture-notes). This permits control in adversarial environments via a new type of algorithm, the [Gradient Perturbation Controller](https://arxiv.org/abs/1902.08721), which also gives rise to the first [logarithmic regret](https://arxiv.org/abs/1909.05062) in online control.
+- A new framework for robust control called [Non-Stochastic Control](https://arxiv.org/abs/2211.09619). This permits control in adversarial environments via a new type of algorithm, the [Gradient Perturbation Controller](https://arxiv.org/abs/1902.08721), which also gives rise to the first [logarithmic regret](https://arxiv.org/abs/1909.05062) in online control.
 
   In this framework we can also control with [unknown systems](https://arxiv.org/abs/1911.12178) and [partially observed states](https://arxiv.org/abs/2001.09254).
 
