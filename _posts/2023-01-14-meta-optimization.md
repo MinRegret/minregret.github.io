@@ -112,7 +112,7 @@ $$O(\frac{ \sqrt{ \sigma^2 } }{\sqrt{T} } ).$$
 
   
 
-Here $\sigma^2$ is the variance of the stochastic gradient estimator, and T is the number of iterations. The variance has clear importance to the overall running time. This rate is optimal, and obtained by carefully tuning the learning rate $ \eta$ to be inversely proportional to the variance, more precisely, $ \eta = O(\frac{1}{\sqrt{t \sigma^2}})$. The proof of this fact is elementary, and details can be found in [these lecture notes](https://arxiv.org/abs/1909.03550), chapter 2.
+Here $\sigma^2$ is the variance of the stochastic gradient estimator, and T is the number of iterations. The variance has clear importance to the overall running time. This rate is optimal, and obtained by carefully tuning the learning rate $\eta$ to be inversely proportional to the variance, more precisely, $\eta = O(\frac{1}{\sqrt{t \sigma^2}})$. The proof of this fact is elementary, and details can be found in [these lecture notes](https://arxiv.org/abs/1909.03550), chapter 2.
 
   
 
@@ -122,11 +122,11 @@ The intuition for adaptive regularization is now simple: consider an optimizatio
 
 Thus, it is reasonable to change the SGD update rule to the more robust
 
-$x_{t+1} \leftarrow x_t - D_t \nabla_t ,$
+$$x_{t+1} \leftarrow x_t - D_t \nabla_t ,$$
 
 where $ D_t$ is a diagonal matrix that contains in coordinate $ (i,i)$ the learning rate for coordinate i in the gradient. Thus, the robust version of stochastic gradient descent should behave as the above equation, with the empirical variance on the diagonal of D_t,
 
-$D_t(i,i) = \frac{1}{\sqrt{\sum_{i < t} \nabla_t(i)^2}} .$
+$$D_t(i,i) = \frac{1}{\sqrt{\sum_{i < t} \nabla_t(i)^2}} .$$
 
 This is exactly the diagonal version of the Adagrad algorithm!
 
