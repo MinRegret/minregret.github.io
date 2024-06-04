@@ -58,13 +58,13 @@ The main advantage of spectral filtering is that for certain types of linear dyn
 
 Experiments with neural architectures that make use of spectral filtering, which we call Spectral Transform Unit (STU), show promise on the long range arena benchmarks as follows:
 
-{% assign image = "stu-experiments.PNG" %}
+{% assign image = "stu-experiments.png" %}
 {% include center-image.html %}
 
 
 Where the STU architecture is schematically described by the following figure. 
 
-{% assign image = "STUPicture.PNG" %}
+{% assign image = "STUPicture.png" %}
 {% include center-image.html %}
 
 For more details on the STU architecture, and mathematical details on how our filters are designed, and their theoretical properties, check out our [recent paper](https://arxiv.org/pdf/2312.06837)!
