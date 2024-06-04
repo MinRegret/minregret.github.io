@@ -1,6 +1,10 @@
-Spectral Transformers
-by Google AI Princeton / Hazan lab 
+---
+title: Spectral Transformers
+authors: [elad, naman, xinyi, daniel]
+layout: post
+---
 
+Google AI Princeton
 
 One of the biggest challenges for the [Transformer architecture](https://proceedings.neurips.cc/paper_files/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html), powering modern large language models, is their computational inefficiencies on long sequences. The computational complexity of inference of the attention module scales quadratically with the context length, which is therefore limited in practice.  
 
