@@ -10,7 +10,7 @@ The computational bottleneck of transformers gave rise to recent interest in [st
 
 In this post we describe a recent methodological advancement for state space models: spectral filtering. We describe the theoretical foundations of this technique, and how it gives rises to provable methods with long memory for learning linear dynamical systems. We then describe how the spectral filtering algorithm can be used for designing neural architectures and preliminary results in long range tasks.   
 
-##Fundamentals of Sequence Prediction 
+## Fundamentals of Sequence Prediction 
 
 Stateful time series prediction have been used to model a plethora of phenomena. Consider a sequence of inputs and outputs, or measurements, coming from some real-world machine 
 
@@ -36,7 +36,7 @@ Here $h_t$ is a hidden state, which can have very large or even infinite dimensi
 
 This setting is general enough to capture a variety of machine learning models previously considered in isolation, such as hidden Markov models, principle and independent component analysis, mixture of Gaussian clusters and many more, see this [survey by Roweis and Ghahramani](https://cs.nyu.edu/~roweis/papers/NC110201.pdf).
 
-##The Memory of Linear Dynamics 
+## The Memory of Linear Dynamics 
 
 The linear equations governing the dynamics are recursive in nature. An input is multiplied by the system matrix $A$ before affecting the output. The recursive nature of the dynamics means that an input effect $k$ steps into the future will be multiplied by $A^k$, and thus depend exponentially in the eigenvalues of the matrix $A$. 
 
@@ -49,17 +49,17 @@ A notable deviation from the standard theory of linear dynamical systems that al
 {% assign image = "filterbank.PNG" %}
 {% include center-image.html %}
  
-##Why is Spectral Filtering Important for Longer Memory? 
+## Why is Spectral Filtering Important for Longer Memory? 
 
 The main advantage of spectral filtering is that for certain types of linear dynamical systems, in particular those with symmetric matrices, the *effective memory* (measured by the number of filters) required to represent an observation at any point in the sequence in the spectral basis is *independent of the system memory parameter $\delta$*!. This guarantee indicates that if we featurize the input into the spectral basis, we can potentially design models that are capable of efficiently and stably representing systems with extremely long memory even with $\delta \rightarrow 0$. This striking fact motivates our derivation of the recurrent spectral architecture, and is the underlying justification for the performance and training stability gains we see in experiments. 
 
 Experiments with neural architectures that make use of spectral filtering, which we call Spectral Transform Unit (STU), show promise on the long range arena benchmarks as follows:
 
 
- Where the STU architecture is schematically described by the following figure. 
+Where the STU architecture is schematically described by the following figure. 
 
-
-
+{% assign image = "STUPicture.PNG" %}
+{% include center-image.html %}
 
 For more details on the STU architecture, and mathematical details on how our filters are designed, and their theoretical properties, check out our [recent paper](https://arxiv.org/pdf/2312.06837)!
 
