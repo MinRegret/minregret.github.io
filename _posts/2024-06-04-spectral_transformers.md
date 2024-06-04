@@ -26,7 +26,10 @@ For example, these can be:
 
 -   $x_t$ are physical controls of a robot, i.e. force in various directions, and $y_t$ are the location to which it moves
 
-Such systems are generally called dynamical systems, and the simplest type of dynamics is linear dynamics. A linear dynamical system has a particularly intuitive interpretation as a (configurable) vector field (from wikipedia):
+Such systems are generally called dynamical systems, and the simplest type of dynamics is linear dynamics. A linear dynamical system has a particularly intuitive interpretation as a (configurable) vector field as depicted below (from wikipedia):
+
+{% assign image = "lds-wiki.PNG" %}
+{% include center-image.html %}
 
 For linear dynamical systems, the output is generated according to the following equations:
 $$h_{t+1}  = A h_t + B x_t + \eta_t $$
@@ -54,6 +57,9 @@ A notable deviation from the standard theory of linear dynamical systems that al
 The main advantage of spectral filtering is that for certain types of linear dynamical systems, in particular those with symmetric matrices, the *effective memory* (measured by the number of filters) required to represent an observation at any point in the sequence in the spectral basis is *independent of the system memory parameter $\delta$*!. This guarantee indicates that if we featurize the input into the spectral basis, we can potentially design models that are capable of efficiently and stably representing systems with extremely long memory even with $\delta \rightarrow 0$. This striking fact motivates our derivation of the recurrent spectral architecture, and is the underlying justification for the performance and training stability gains we see in experiments. 
 
 Experiments with neural architectures that make use of spectral filtering, which we call Spectral Transform Unit (STU), show promise on the long range arena benchmarks as follows:
+
+{% assign image = "stu-experiments.PNG" %}
+{% include center-image.html %}
 
 
 Where the STU architecture is schematically described by the following figure. 
