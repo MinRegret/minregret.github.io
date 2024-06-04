@@ -1,4 +1,4 @@
-Spectral Transformers
+#Spectral Transformers
 
 by Hazan lab 
 
@@ -8,21 +8,23 @@ One of the biggest challenges for the Transformer architecture, powering modern 
 The computational bottleneck of transformers gave rise to recent interest in state space models. These alternate architectures are variants of recurrent neural networks that are much faster in terms of inference. Recent works showed their promise in a variety of tasks requiring long context, such as the long range arena benchmark. 
 
 In this post we describe a recent methodological advancement for state space models: spectral filtering. We describe the theoretical foundations of this technique, and how it gives rises to provable methods with long memory for learning linear dynamical systems. We then describe how the spectral filtering algorithm can be used for designing neural architectures and preliminary results in long range tasks.   
-Fundamentals of Sequence Prediction 
+
+##Fundamentals of Sequence Prediction 
 
 Stateful time series prediction have been used to model a plethora of phenomena. Consider a sequence of inputs and outputs, or measurements, coming from some real-world machine \
 
-$$x_1,x_2,ldots,x_T,\ldots   \ \ \Rightarrow  \ \ \ y_1,y_2, y_3 , \ldots, y_T , \ldots $$
+$$x_1,x_2, \ldots,x_T,\ldots   \ \ \Rightarrow  \ \ \ y_1,y_2, y_3 , \ldots, y_T , \ldots $$
 
 For example, these can be:
 
--   $$y_t$$ are measurements of ocean temperature, in a study of global warming. $$x_t$$ are various environmental knowns, such as time of the year, water acidity, etc.
+-   $y_t$ are measurements of ocean temperature, in a study of global warming. $x_t$ are various environmental knowns, such as time of the year, water acidity, etc.
 
 
--   Language modeling or translation, $$x_t$$ are words in Hebrew, and $$y_t$$ is their English translation
+-   Language modeling or translation, $x_t$ are words in Hebrew, and $y_t$ is their English translation
 
 
 -   $$x_t$$ are physical controls of a robot, i.e. force in various directions, and $$y_t$$ are the location to which it moves
+
 
 Such systems are generally called dynamical systems, and the simplest type of dynamics is linear dynamics. A linear dynamical system has a particularly intuitive interpretation as a (configurable) vector field (from wikipedia):
 
