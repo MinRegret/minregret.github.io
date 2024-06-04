@@ -28,7 +28,7 @@ For example, these can be:
 
 Such systems are generally called dynamical systems, and the simplest type of dynamics is linear dynamics. A linear dynamical system has a particularly intuitive interpretation as a (configurable) vector field as depicted below (from wikipedia):
 
-{% assign image = "lds-wiki.PNG" %}
+{% assign image = "2019-10-31-null.png" %} 
 {% include center-image.html %}
 
 For linear dynamical systems, the output is generated according to the following equations:
