@@ -53,7 +53,13 @@ A notable deviation from the standard theory of linear dynamical systems that al
 
 {% assign image = "filterbank.PNG" %}
 {% include center-image.html %}
+
+A schematic figure of the basic neural architecture called the Spectral Transform Unit (STU) is depictured in the following figure. More sophisticated variants including hybrid attention-STU architectures are also implemented and tested by the team. 
+
+{% assign image = "STUPicture.png" %}
+{% include center-image.html %}
  
+
 ## Why is Spectral Filtering Important for Longer Memory? 
 
 The main advantage of spectral filtering is that for certain types of linear dynamical systems, in particular those with symmetric matrices, the *effective memory* (measured by the number of filters) required to represent an observation at any point in the sequence in the spectral basis is *independent of the system memory parameter $\delta$*!. This guarantee indicates that if we featurize the input into the spectral basis, we can potentially design models that are capable of efficiently and stably representing systems with extremely long memory even with $\delta \rightarrow 0$. This striking fact motivates our derivation of the recurrent spectral architecture, and is the underlying justification for the performance and training stability gains we see in experiments. 
@@ -64,12 +70,8 @@ Experiments with neural architectures that make use of spectral filtering, which
 {% include center-image.html %}
 
 
-Where the STU architecture is schematically described by the following figure. 
 
-{% assign image = "STUPicture.png" %}
-{% include center-image.html %}
-
-For more details on the STU architecture, and mathematical details on how our filters are designed, and their theoretical properties, check out our [recent paper](https://arxiv.org/pdf/2312.06837)!
+For more details on the STU neural architecture, and mathematical details on how our filters are designed, and their theoretical properties, check out our [recent paper](https://arxiv.org/pdf/2312.06837)!
 
 
 
