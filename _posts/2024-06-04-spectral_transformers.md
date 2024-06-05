@@ -1,6 +1,6 @@
 ---
 title: Spectral Transformers
-authors: [elad, naman, xinyi, daniel]
+authors: [naman, daniel, xinyi, elad]
 layout: post
 ---
 
