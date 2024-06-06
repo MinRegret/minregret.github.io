@@ -68,7 +68,7 @@ This section is a bit more mathematical, it gives only the gist of how the filte
 {% include center-image.html %}
 
 The filters we use are the eigenvectors correspnding to the largest eigenvalues of this matrix. For more details on how to extend this intuition to higher dimensions see 
- [this paper](https://arxiv.org/abs/1711.00946).
+ [this paper](https://arxiv.org/abs/1711.00946), [extension to asymetric matrices](https://arxiv.org/abs/1802.03981), and detailed treatment in [textbook](https://arxiv.org/abs/2211.09619). 
 
  
 
