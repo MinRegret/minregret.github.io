@@ -83,7 +83,7 @@ Experiments with neural architectures that make use of spectral filtering, which
 
 
 
-For more details on the STU neural architecture, and mathematical details on how our filters are designed, and their theoretical properties, check out our [recent paper](https://arxiv.org/pdf/2312.06837)!
+For more details on the STU neural architecture,  mathematical details on how the spectral filters are designed, as well as their theoretical properties, check out our [recent paper](https://arxiv.org/pdf/2312.06837)!
 
 
 
