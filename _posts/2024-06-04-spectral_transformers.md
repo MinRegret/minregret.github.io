@@ -62,7 +62,7 @@ A schematic figure of the basic neural architecture called the Spectral Transfor
 
 ## Where do the filters come from? 
 
-This section is a bit more mathematical, it gives only the gist of how the filters arise. The subspace that we would like to span is the set of all vectors that have the form $\mu_\alpha = [1 \alpha \alpha^2 ... ]$, since these vectors naturally arise in the recursive application of a linear dynamical system. We thus consider a uniform distribution over these vectors, and the matrix $H = \int_{\alpha = 0}^1 \mu_\alpha \mu_\alpha^\top$. This is a fixed matrix, unrelated to the data, that naturally arises from the structure of linear dynamics. It has a special property: it is a Hankle matrix, depicted below, and [known theorems in mathematics](https://epubs.siam.org/doi/abs/10.1137/16M1096426) show that its spectrum has an exponential decay property. 
+This section is a bit more mathematical, it gives only the gist of how the filters arise. The subspace that we would like to span is the set of all vectors that have the form $\mu_\alpha = [1 \alpha \alpha^2 ... ]$, since these vectors naturally arise in the recursive application of a linear dynamical system. We thus consider a uniform distribution over these vectors, and the matrix $Z = \int_{\alpha = 0}^1 \mu_\alpha \mu_\alpha^\top$. This is a fixed matrix, unrelated to the data, that naturally arises from the structure of linear dynamics. It has a special property: it is a Hankle matrix, depicted below, and [known theorems in mathematics](https://epubs.siam.org/doi/abs/10.1137/16M1096426) show that its spectrum has an exponential decay property. 
 
 {% assign image = "hankel-matrix.png" %}
 {% include center-image.html %}
