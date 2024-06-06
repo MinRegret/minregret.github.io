@@ -49,7 +49,7 @@ In a well-behaved system, the eigenvalues of $A$ have magnitude $<1$. If the mag
 
 ## Spectral Filtering  
 
-A notable deviation from the standard theory of linear dynamical systems that allows efficient learning in the presence of arbitrarily long memory is the technique of [spectral filtering](https://arxiv.org/abs/1711.00946). The idea is to project the sequence of inputs to a small subspace that is constructed using a special structure of discrete linear dynamical systems, where successive powers of the system matrix appear in the impulse response function. We can then represent the output as a linear combination of *spectral filters* which are sequence-length sized vectors that given the target sequence length can be computed offline. These spectral-filters are the eigenvectors of a special matrix constructed as the average of outer products of the discrete impulse-response functions. The structure of this matrix implies that it has a very concentrated spectrum, and very few filters suffice to accurately reproduce *any* signal. The magical mathematical fact is explained in [this paper](https://arxiv.org/abs/1711.00946), and the filters themselves are depicted here 
+A notable deviation from the standard theory of linear dynamical systems that allows efficient learning in the presence of arbitrarily long memory is the technique of [spectral filtering](https://arxiv.org/abs/1711.00946). The idea is to project the sequence of inputs to a small subspace that is constructed using a special structure of discrete linear dynamical systems, where successive powers of the system matrix appear in the impulse response function. We can then represent the output as a linear combination of *spectral filters* which are sequence-length sized vectors that given the target sequence length can be computed offline. These spectral-filters are the eigenvectors of a special matrix constructed as the average of outer products of the discrete impulse-response functions. The structure of this matrix implies that it has a very concentrated spectrum, and very few filters suffice to accurately reproduce *any* signal. This magical mathematical fact is explained in the next section, the filters themselves are depicted here 
 
 {% assign image = "filterbank.PNG" %}
 {% include center-image.html %}
@@ -58,6 +58,18 @@ A schematic figure of the basic neural architecture called the Spectral Transfor
 
 {% assign image = "STUPicture.png" %}
 {% include center-image.html %}
+ 
+
+## Where do the filters come from? 
+
+This section is a bit more mathematical, it gives only the gist of how the filters arise. The subspace that we would like to span is the set of all vectors that have the form $\mu_\alpha = [1 \alpha \alpha^2 ... ]$, since these vectors naturally arise in the recursive application of a linear dynamical system. We thus consider a uniform distribution over these vectors, and the matrix $H = \int_{\alpha = 0}^1 \mu_\alpha \mu_\alpha^\top$. This is a fixed matrix, unrelated to the data, that naturally arises from the structure of linear dynamics. It has a special property: it is a Hankle matrix, depicted below, and [known theorems in mathematics](https://epubs.siam.org/doi/abs/10.1137/16M1096426) show that its spectrum has an exponential decay property. 
+
+{% assign image = "hankel-matrix.png" %}
+{% include center-image.html %}
+
+The filters we use are the eigenvectors correspnding to the largest eigenvalues of this matrix. For more details on how to extend this intuition to higher dimensions see 
+ [this paper](https://arxiv.org/abs/1711.00946).
+
  
 
 ## Why is Spectral Filtering Important for Longer Memory? 
