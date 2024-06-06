@@ -24,7 +24,7 @@ For example, these can be:
 -   Language modeling or translation, $x_t$ are words in Hebrew, and $y_t$ is their English translation
 
 
--   $x_t$ are physical controls of a robot, i.e. force in various directions, and $y_t$ are the location to which it moves
+-   $x_t$ are physical properties and controls of a robot, i.e. position, velocity, force in various directions, and $y_t$ are the location to which it moves
 
 Such systems are generally called dynamical systems, and the simplest type of dynamics is linear dynamics. A linear dynamical system has a particularly intuitive interpretation as a (configurable) vector field as depicted below (from wikipedia):
 
