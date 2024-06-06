@@ -37,7 +37,7 @@ $$y_{t+1}   = C h_t + D x_t + \zeta_t $$
 Here $h_t$ is a hidden state, which can have very large or even infinite dimensionality, $A,B,C,D$ are linear transformations and $\eta_t,\zeta_t$ are noise vectors.
 
 
-This setting is general enough to capture a variety of machine learning models previously considered in isolation, such as hidden Markov models, principle and independent component analysis, mixture of Gaussian clusters and many more, see this [survey by Roweis and Ghahramani](https://cs.nyu.edu/~roweis/papers/NC110201.pdf).
+This setting is general enough to capture a variety of machine learning models previously considered in isolation, such as hidden Markov models, principle and independent component analysis, mixture of Gaussian clusters and many more, see this [survey](https://cs.nyu.edu/~roweis/papers/NC110201.pdf) and [recent textbook draft](https://arxiv.org/abs/2211.09619). 
 
 ## The Memory of Linear Dynamics 
 
