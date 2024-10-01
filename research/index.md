@@ -5,6 +5,10 @@ title: Research
 
 # Research
 
+## Sequence Prediction and Spectral Transformers
+
+- Recent research from our lab connects learning in dynamical systems to sequence perdiction via a new architecture called [Spectral Transformers](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers), more information and recent publications in [this link](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers). 
+
 ## Control and Reinforcement Learning
 
 - A new framework for robust control called [Non-Stochastic Control](https://arxiv.org/abs/2211.09619). This permits control in adversarial environments via a new type of algorithm, the [Gradient Perturbation Controller](https://arxiv.org/abs/1902.08721), which also gives rise to the first [logarithmic regret](https://arxiv.org/abs/1909.05062) in online control.
