@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Sequence Preconditioning</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <!-- Use the Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom D3 styles */
+        .line-true {
+            fill: none;
+            stroke: #3b82f6; /* blue-500 */
+            stroke-width: 2px;
+        }
+        .line-pred {
+            fill: none;
+            stroke: #ef4444; /* red-500 */
+            stroke-width: 2.5px;
+            stroke-dasharray: 4 4;
+        }
+        .line-pred-cheby {
+            fill: none;
+            stroke: #10b981; /* emerald-500 */
+            stroke-width: 2.5px;
+            stroke-dasharray: 2 6;
+        }
+        .line-poly {
+            fill: none;
+            stroke: #10b981; /* emerald-500 */
+            stroke-width: 3px;
+        }
+        .axis-grid line {
+            stroke: #e5e7eb; /* gray-200 */
+            stroke-dasharray: 2 2;
+        }
+        .axis-zero line {
+            stroke: #9ca3af; /* gray-400 */
+            stroke-width: 1.5px;
+        }
+        .d3-axis path,
+        .d3-axis line {
+            stroke: #6b7280; /* gray-500 */
+        }
+        .d3-axis text {
+            fill: #4b5563; /* gray-600 */
+            font-size: 12px;
+        }
+        /* Custom slider styles */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #d1d5db; /* gray-300 */
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        input[type=range]:hover {
+            opacity: 1;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6; /* blue-500 */
+            cursor: pointer;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6; /* blue-500 */
+            cursor: pointer;
+        }
+        /* Table styles for Demo 3 */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .results-table th, .results-table td {
+            border: 1px solid #e5e7eb; /* gray-200 */
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .results-table th {
+            background-color: #f9fafb; /* gray-50 */
+        }
+        .results-table .mse-value {
+            font-weight: 600;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+        .results-table .best-mse {
+            background-color: #ecfdf5; /* emerald-50 */
+            color: #065f46; /* emerald-800 */
+        }
+        .results-table .worst-mse {
+            background-color: #fef2f2; /* red-50 */
+            color: #991b1b; /* red-800 */
+        }
+    </style>
+    <!-- Add MathJax for LaTeX rendering -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+    <div class="max-w-5xl mx-auto p-4 md:p-8 space-y-8">
+
+        <!-- Header -->
+        <header class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Universal Sequence Preconditioning</h1>
+            <p class="text-xl text-slate-600 mt-2">An Interactive Exposition of the Paper by Marsden & Hazan</p>
+        </header>
+
+        <!-- Exposition Section -->
+        <section class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <div class="prose prose-lg max-w-none">
+                <h2 class="text-2xl font-semibold">The Problem: Hard-to-Predict Sequences</h2>
+                <p>
+                    In machine learning, predicting the next item in a sequence ($y_1, y_2, y_3, \dots$) is a core task. We want a model $f$ such that $f(y_1, \dots, y_{t-1}) \approx y_t$.
+                    This is difficult when the sequence has long-range dependencies or a persistent "state" (like growing over time).
+                </p>
+                <p>
+                    A classic trick is <strong>preconditioning</strong>: instead of learning the original sequence, we learn a *transformed*, easier sequence. The most famous example is <strong>differencing</strong>.
+                    Instead of predicting $y_t$, we predict the *change* $\Delta_t = y_t - y_{t-1}$.
+                </p>
+                <ul>
+                    <li><strong>Hard Sequence:</strong> A simple ramp, $y_t = 0.1 \times t$. (e.g., 0.1, 0.2, 0.3, ...). A simple model will always "lag" behind this growing target.</li>
+                    <li><strong>Easy Sequence:</strong> The differenced sequence is $\Delta_t = y_t - y_{t-1} = 0.1$. It's just a constant! Any model can learn this instantly.</li>
+                </ul>
+                <p>Once we predict the new value $\hat{\Delta}_t$, we can "un-transform" it to get our final prediction: $\hat{y}_t = \hat{\Delta}_t + y_{t-1}$.</p>
+                
+                <h2 class="text-2xl font-semibold">The Paper's Big Idea: General Preconditioning</h2>
+                <p>
+                    Differencing is just one specific transformation, which we can write as a "convolution": $\tilde{y}_t = (1) \cdot y_t + (-1) \cdot y_{t-1}$.
+                </p>
+                <p>
+                    The paper asks: What if we use a more general set of coefficients $c_i$?
+                    $$ \tilde{y}_t = \sum_{i=0}^{n} c_i y_{t-i} $$
+                    What are the <em>best</em> coefficients $c_0, \dots, c_n$ to make the sequence easiest to learn?
+                </p>
+
+                <h2 class="text-2xl font-semibold">The Key Insight: A Link to Polynomials</h2>
+                <p>
+                    The paper shows that for a huge class of systems (Linear Dynamical Systems), the "difficulty" is controlled by a hidden matrix $A$.
+                    Applying this convolution to the sequence $y_t$ is mathematically equivalent to applying a <em>polynomial</em> $p_n(x)$ to that matrix $A$.
+                </p>
+                <p>
+                    The polynomial is defined by the coefficients: $p_n(x) = c_0 x^n + c_1 x^{n-1} + \dots + c_n$.
+                </p>
+                <p>
+                    The "difficulty" of the new sequence $\tilde{y}_t$ depends on the "size" of $p_n(A)$. To make the problem as easy as possible, we need to find a polynomial $p_n(x)$ that is as <strong>small as possible</strong>, at least in the region where the system "lives" (i.e., where the eigenvalues of $A$ are).
+                </p>
+
+                
+                <h2 class="text-2xl font-semibold">The "Universal" Solution: Chebyshev Polynomials</h2>
+                <p>
+                    This leads to the solution: the <strong>Chebyshev Polynomial</strong>. This polynomial is famous for having the <em>smallest possible maximum value</em> in the `[-1, 1]` interval compared to any other monic polynomial (where $c_0=1$) of the same degree.
+                </p>
+                <p>
+                    If we assume the system's "difficulty" lies within `[-1, 1]`, the Chebyshev polynomial is the <strong>best possible choice</strong> to "shrink" the problem and make it easier to learn. It's "universal" because we don't need to know the specifics of the matrix $A$, just this general assumption about its bounds.
+                </p>
+
+                <h2 class="text-2xl font-semibold">The Inevitable Trade-Off</h2>
+                <p>
+                    This reveals a fascinating trade-off, which the experiments in the paper confirm:
+                </p>
+                <ol>
+                    <li><strong>High Degree ($n$) is Good:</strong> A higher-degree Chebyshev polynomial gets <em>exponentially smaller</em> on `[-1, 1]`. This "residual" part of the problem (the part we can't learn) vanishes.</li>
+                    <li><strong>High Degree ($n$) is Bad:</strong> The <em>coefficients</em> $c_i$ of a high-degree Chebyshev polynomial get <em>exponentially larger</em>. This makes the "learnable" part of the problem unstable and hard for models to handle (e.g., exploding gradients).</li>
+                </ol>
+                <p>
+                    The paper finds there's a "sweet spot" (around $n=5$ to $n=10$) that balances these two competing effects. The visualizations below will let you explore this trade-off directly.
+                </p>
+            </div>
+        </section>
+
+        <!-- Demo 1: The Power of Differencing -->
+        <section class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Demo 1: The Power of Differencing</h2>
+            <p class="text-slate-600 mb-4">
+                This demo shows a simple "Exponential Moving Average" predictor trying to learn a sequence.
+                The blue line is the "true" data (a noisy ramp). The red line is the model's one-step-ahead prediction.
+                Initially, the predictor learns the raw $y_t$ value and badly lags behind.
+            </p>
+            <p class="text-slate-600 mb-4">
+                When you check <strong>"Apply Differencing"</strong>, the model switches to learning the <em>differenced</em> sequence $\Delta_t = y_t - y_{t-1}$.
+                It predicts the next change ($\hat{\Delta}_t$) and reconstructs its final prediction as $\hat{y}_t = y_{t-1} + \hat{\Delta}_t$.
+                Notice how the Mean Squared Error (MSE) plummets and the red line snaps to the blue line.
+            </p>
+            
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4 p-4 bg-slate-50 rounded-lg">
+                <button id="reset-sim1" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                    Reset Simulation
+                </button>
+                <div class="flex items-center">
+                    <input id="diff-toggle" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="diff-toggle" class="ml-2 block text-lg font-medium text-slate-700">Apply Differencing (Preconditioning)</label>
+                </div>
+                <div class="text-lg">
+                    <strong>Live MSE:</strong> <span id="mse-display" class="font-mono font-bold text-red-500">0.0000</span>
+                </div>
+            </div>
+
+            <div id="chart1-container" class="w-full">
+                <svg id="chart1" class="w-full" viewBox="0 0 1000 500"></svg>
+            </div>
+        </section>
+
+        <!-- Demo 2: The Chebyshev Trade-Off -->
+        <section class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Demo 2: The Polynomial Trade-Off</h2>
+            <p class="text-slate-600 mb-4">
+                This visualization explores the core trade-off from the paper. We compare three types of monic polynomials $p_n(x)$ (where $c_0=1$).
+                Use the slider to change the polynomial degree $n$.
+            </p>
+            <ul class="list-disc list-inside text-slate-600 mb-4">
+                <li><strong>Left Chart (The "Good"):</strong> Shows the polynomial's value $p_n(x)$ on the critical `[-1, 1]` interval. Notice how the Monic Chebyshev polynomial is <em>dramatically</em> smaller than the others, and this value shrinks as $n$ increases.</li>
+                <li><strong>Right Chart (The "Bad"):</strong> Shows the absolute value of the coefficients $c_i$ on a <strong>log scale</strong>. Notice how the Chebyshev and Legendre coefficients <em>explode</em> exponentially as $n$ increases.</li>
+            </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 p-4 bg-slate-50 rounded-lg">
+                <div class="col-span-1">
+                    <label for="degree-slider" class="block text-lg font-medium text-slate-700">Polynomial Degree $n$: <span id="degree-label" class="font-bold text-blue-600">5</span></label>
+                    <input id="degree-slider" type="range" min="1" max="20" value="5" class="w-full">
+                </div>
+                <div class="col-span-2 flex items-center justify-around flex-wrap">
+                    <div class="flex items-center">
+                        <input id="poly-simple" type="radio" name="poly-type" value="simple" class="h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="poly-simple" class="ml-2 text-lg text-slate-700">$p(x) = x^n$</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="poly-cheby" type="radio" name="poly-type" value="chebyshev" checked class="h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="poly-cheby" class="ml-2 text-lg text-slate-700">Monic Chebyshev</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="poly-legendre" type="radio" name="poly-type" value="legendre" class="h-4 w-4 text-blue-600 border-gray-300">
+                        <label for="poly-legendre" class="ml-2 text-lg text-slate-700">Monic Legendre</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Left: Polynomial Value on `[-1, 1]`</h3>
+                    <div id="chart2-poly-container" class="w-full">
+                        <svg id="chart2-poly" class="w-full" viewBox="0 0 500 400"></svg>
+                    </div>
+                    <p class="text-center text-sm text-slate-500 mt-2">Max value on `[-1, 1]`: <strong id="poly-max-val" class="text-emerald-600">0.0</strong></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Right: Coefficient Size (Log Scale)</h3>
+                    <div id="chart2-coeffs-container" class="w-full">
+                        <svg id="chart2-coeffs" class="w-full" viewBox="0 0 500 400"></svg>
+                    </div>
+                    <p class="text-center text-sm text-slate-500 mt-2">Max coefficient: <strong id="coeff-max-val" class="text-red-600">0.0</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo 3: DNN Preconditioning -->
+        <section class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Demo 3: Preconditioning a DNN Predictor</h2>
+            <p class="text-slate-600 mb-4">
+                Here we simulate the paper's results for DNNs. A simple 'Generator' RNN (simulated by a non-linear model) creates a complex sequence. We then train 2 separate 'Predictor' DNNs (MLPs) to predict this sequence. One is trained on the baseline data, and the other on the Chebyshev (n=5) preconditioned data.
+            </p>
+            <p class="text-slate-600 mb-4">
+                Press "Start" to train the models (this may take 5-10 seconds). We then run a live simulation and compare their final prediction errors (MSE). The models all predict $y_t$ using $[y_{t-1}, \dots, y_{t-5}]$ as input.
+            </p>
+            
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4 p-4 bg-slate-50 rounded-lg">
+                <button id="reset-sim3" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                    Start / Reset DNN Training
+                </button>
+                <div id="status-sim3" class="text-lg font-medium text-slate-700">
+                    Status: Ready
+                </div>
+                <div class_A="flex items-center space-x-2">
+                    <span class="text-lg font-medium">Comparing: Baseline vs. Cheby (n=4)</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Live MSE Comparison</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Predictor</th>
+                                <th>Live MSE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody-sim3">
+                            <tr><td>Baseline</td><td id="mse-base" class="mse-value">...</td></tr>
+                            <tr><td>Cheby (n=4)</td><td id="mse-c4" class="mse-value">...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-center mb-2">Live Prediction</h3>
+                    <div id="chart3-container" class="w-full">
+                        <svg id="chart3" class="w-full" viewBox="0 0 500 400"></svg>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-slate-500 text-sm mt-8">
+            <p>Based on the paper <a href="https://arxiv.org/abs/2310.05739" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">"Universal Sequence Preconditioning"</a> (NeurIPS 2023) by Annie Marsden and Elad Hazan.</p>
+            <p>Interactive demo created by Gemini.</p>
+        </footer>
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Demo 1: The Power of Differencing ---
+
+            let sim1State = {
+                time: 0,
+                data: [],
+                predictions: [],
+                errors: [],
+                isDifferencing: false,
+                alpha: 0.5, // EMA smoothing factor
+                emaPred: 0,
+                emaDiffPred: 0,
+                slope: 0.01,
+                noise: 0.05,
+                maxPoints: 200,
+                animationFrameId: null,
+            };
+
+            const chart1Container = d3.select("#chart1-container");
+            const svg1 = d3.select("#chart1");
+            const margin1 = { top: 20, right: 30, bottom: 40, left: 50 };
+            let width1 = 1000 - margin1.left - margin1.right;
+            let height1 = 500 - margin1.top - margin1.bottom;
+
+            const g1 = svg1.append("g").attr("transform", `translate(${margin1.left},${margin1.top})`);
+
+            const x1 = d3.scaleLinear().range([0, width1]);
+            const y1 = d3.scaleLinear().range([height1, 0]);
+
+            const line1True = d3.line()
+                .x(d => x1(d.time))
+                .y(d => y1(d.value));
+
+            const line1Pred = d3.line()
+                .x(d => x1(d.time))
+                .y(d => y1(d.value));
+
+            const xAxis1 = g1.append("g")
+                .attr("class", "d3-axis")
+                .attr("transform", `translate(0,${height1})`);
+            
+            const yAxis1 = g1.append("g").attr("class", "d3-axis");
+
+            const truePath = g1.append("path").attr("class", "line-true");
+            const predPath = g1.append("path").attr("class", "line-pred");
+
+            const mseDisplay = d3.select("#mse-display");
+            const diffToggle = d3.select("#diff-toggle");
+            const resetBtn1 = d3.select("#reset-sim1");
+
+            function resetSim1() {
+                if (sim1State.animationFrameId) {
+                    cancelAnimationFrame(sim1State.animationFrameId);
+                }
+                sim1State.time = 0;
+                sim1State.data = [];
+                sim1State.predictions = [];
+                sim1State.errors = [];
+                sim1State.emaPred = 0;
+                sim1State.emaDiffPred = 0;
+                sim1State.isDifferencing = diffToggle.property("checked");
+                
+                // Pre-populate a bit
+                for (let i = 0; i < 5; i++) {
+                    generateDataPoint();
+                    updatePrediction();
+                    sim1State.time++; // Manually increment time here
+                }
+                
+                updateSim1();
+                sim1State.animationFrameId = requestAnimationFrame(gameLoop1);
+            }
+
+            function generateDataPoint() {
+                const y_true = sim1State.time * sim1State.slope + (Math.random() - 0.5) * sim1State.noise;
+                sim1State.data.push({ time: sim1State.time, value: y_true });
+                if (sim1State.data.length > sim1State.maxPoints) {
+                    sim1State.data.shift();
+                }
+                return y_true;
+            }
+
+            function updatePrediction() {
+                const t = sim1State.time;
+                if (t === 0) {
+                    sim1State.predictions.push({ time: t, value: 0 });
+                    return;
+                }
+
+                const y_true = sim1State.data[sim1State.data.length - 1].value;
+                const y_true_last = sim1State.data[sim1State.data.length - 2].value;
+                let y_pred;
+                let error;
+
+                if (sim1State.isDifferencing) {
+                    // Learn in the differenced space
+                    const y_diff_true = y_true - y_true_last;
+                    const y_diff_pred = sim1State.emaDiffPred;
+                    
+                    // Predict the *next* difference
+                    sim1State.emaDiffPred = sim1State.alpha * y_diff_true + (1 - sim1State.alpha) * sim1State.emaDiffPred;
+                    
+                    // Un-difference to get the real prediction
+                    // We predict y_t based on y_{t-1} + predicted_change_t
+                    // Our predicted_change_t (y_diff_pred) is based on data up to t-1
+                    y_pred = y_diff_pred + y_true_last; 
+                    
+                    // The error is how well our prediction for y_t matched the real y_t
+                    // The prediction for y_t was stored in the *previous* step
+                    if (sim1State.predictions.length > 0) {
+                        error = Math.pow(y_true - (sim1State.predictions[sim1State.predictions.length-1].value), 2);
+                    } else {
+                        error = Math.pow(y_true, 2); // Error for the first point
+                    }
+                    
+                    // Update the EMA *after* using it for prediction
+                    sim1State.emaDiffPred = sim1State.alpha * y_diff_true + (1 - sim1State.alpha) * sim1State.emaDiffPred;
+
+                } else {
+                    // Learn in the original space
+                    y_pred = sim1State.emaPred; // Prediction for y_t based on data up to t-1
+                    sim1State.emaPred = sim1State.alpha * y_true_last + (1 - sim1State.alpha) * sim1State.emaPred;
+                    error = Math.pow(y_true - y_pred, 2);
+                }
+
+                sim1State.predictions.push({ time: t, value: y_pred });
+                sim1State.errors.push(error);
+
+                if (sim1State.predictions.length > sim1State.maxPoints) {
+                    sim1State.predictions.shift();
+                }
+                if (sim1State.errors.length > 100) { // MSE over last 100 points
+                    sim1State.errors.shift();
+                }
+            }
+
+            function updateSim1() {
+                const allValues = sim1State.data.concat(sim1State.predictions);
+                x1.domain(d3.extent(allValues, d => d.time));
+                y1.domain(d3.extent(allValues, d => d.value)).nice();
+
+                xAxis1.call(d3.axisBottom(x1));
+                yAxis1.call(d3.axisLeft(y1));
+
+                truePath.datum(sim1State.data).attr("d", line1True);
+                predPath.datum(sim1State.predictions).attr("d", line1Pred);
+
+                if (sim1State.errors.length > 0) {
+                    const mse = d3.mean(sim1State.errors);
+                    mseDisplay.text(mse.toFixed(4));
+                }
+            }
+
+            function gameLoop1() {
+                sim1State.time++;
+                generateDataPoint();
+                updatePrediction();
+                updateSim1();
+                sim1State.animationFrameId = requestAnimationFrame(gameLoop1);
+            }
+
+            // Event Listeners for Demo 1
+            diffToggle.on("change", () => {
+                sim1State.isDifferencing = diffToggle.property("checked");
+                // Reset predictors to avoid jump
+                sim1State.emaPred = sim1State.data.length > 0 ? sim1State.data[sim1State.data.length-1].value : 0;
+                sim1State.emaDiffPred = 0;
+                sim1State.errors = []; // Reset error
+            });
+
+            resetBtn1.on("click", resetSim1);
+            
+            // Initial setup for Demo 1
+            function resizeChart1() {
+                const containerWidth = chart1Container.node().getBoundingClientRect().width;
+                width1 = containerWidth - margin1.left - margin1.right;
+                height1 = (containerWidth * 0.5) - margin1.top - margin1.bottom; // 2:1 aspect ratio
+                
+                svg1.attr("viewBox", `0 0 ${containerWidth} ${containerWidth * 0.5}`);
+                x1.range([0, width1]);
+                y1.range([height1, 0]);
+                xAxis1.attr("transform", `translate(0,${height1})`);
+                updateSim1();
+            }
+            window.addEventListener('resize', resizeChart1);
+            resizeChart1();
+            resetSim1();
+
+
+            // --- Demo 2: The Chebyshev Trade-Off ---
+
+            const degreeSlider = d3.select("#degree-slider");
+            const degreeLabel = d3.select("#degree-label");
+            const polyTypeRadios = d3.selectAll("input[name='poly-type']");
+            const polyMaxVal = d3.select("#poly-max-val");
+            const coeffMaxVal = d3.select("#coeff-max-val");
+
+            // --- Polynomial Coefficient Generation ---
+            // We'll store polynomials as arrays [c0, c1, ..., cn]
+            // where p(x) = c0*x^n + c1*x^(n-1) + ... + cn
+            
+            // Memoization cache
+            const chebyCoeffsCache = new Map();
+            const legendreCoeffsCache = new Map();
+
+            // p1 = [1, 2] (x+2), p2 = [3, 4] (3x+4) -> [1, 5, 10] (x^2+5x+10) NO
+            // Let's use [cn, c(n-1), ..., c0] for p(x) = cn*x^n + ... + c0
+            
+            // Poly utils: p = [c0, c1, ..., cn] (degree n)
+            function polyAdd(p1, p2) {
+                const n = Math.max(p1.length, p2.length);
+                const result = new Array(n).fill(0);
+                for (let i = 0; i < n; i++) {
+                    result[i] = (p1[i] || 0) + (p2[i] || 0);
+                }
+                return result;
+            }
+
+            function polyScale(p, s) {
+                return p.map(c => c * s);
+            }
+
+            // p = [c0, c1], multiply by x -> [0, c0, c1]
+            function polyMulX(p) {
+                return [0, ...p];
+            }
+
+            // T_n+1(x) = 2x * T_n(x) - T_n-1(x)
+            function getChebyshevCoeffs(n) {
+                if (chebyCoeffsCache.has(n)) return chebyCoeffsCache.get(n);
+                if (n === 0) return [1]; // T_0 = 1
+                if (n === 1) return [0, 1]; // T_1 = x. <-- FIXED (was [1, 0])
+
+                const T_n_minus_1 = getChebyshevCoeffs(n - 1);
+                const T_n_minus_2 = getChebyshevCoeffs(n - 2);
+                
+                // 2x * T_n-1
+                const term1 = polyScale(polyMulX(T_n_minus_1), 2);
+                // - T_n-2 (needs padding)
+                const term2 = polyScale(T_n_minus_2.concat(new Array(term1.length - T_n_minus_2.length).fill(0)), -1);
+                
+                const T_n = polyAdd(term1, term2);
+                chebyCoeffsCache.set(n, T_n);
+                return T_n;
+            }
+
+            // (n+1)P_n+1 = (2n+1)x * P_n - n * P_n-1
+            function getLegendreCoeffs(n) {
+                if (legendreCoeffsCache.has(n)) return legendreCoeffsCache.get(n);
+                if (n === 0) return [1]; // P_0 = 1
+                if (n === 1) return [0, 1]; // P_1 = x. <-- FIXED (was [1, 0])
+                
+                // Renaming variables for clarity (was P_n and P_n_minus_1)
+                const P_n_minus_1 = getLegendreCoeffs(n - 1); // Get P_{n-1}
+                const P_n_minus_2 = getLegendreCoeffs(n - 2); // Get P_{n-2}
+
+                // (2n-1)x * P_{n-1}
+                const term1 = polyScale(polyMulX(P_n_minus_1), (2 * n - 1));
+                // -(n-1) * P_{n-2} (pad to match term1 length)
+                const term2 = polyScale(P_n_minus_2.concat(new Array(term1.length - P_n_minus_2.length).fill(0)), -(n - 1));
+                
+                // n * P_n = term1 + term2
+                const P_n_scaled = polyAdd(term1, term2);
+                // P_n = (term1 + term2) / n
+                const P_n = polyScale(P_n_scaled, 1 / n); 
+                
+                legendreCoeffsCache.set(n, P_n);
+                return P_n;
+            }
+
+            // Paper's formulation: p_n(x) = sum(c_i * x^(n-i)) for i=0 to n
+            // So array [c0, c1, ..., cn] is correct.
+            // evalPoly([c0, c1, c2], x, n=2) = c0*x^2 + c1*x^1 + c2*x^0
+            function getMonicCoeffs(n, type) {
+                let coeffs;
+                if (type === 'simple') {
+                    coeffs = new Array(n + 1).fill(0);
+                    coeffs[0] = 1; // [1, 0, ..., 0] -> x^n
+                    return coeffs;
+                }
+                
+                if (type === 'chebyshev') {
+                    if (n === 0) return [1];
+                    // T_n = [t_0, t_1, ..., t_n] (math standard)
+                    const T_n_math = getChebyshevCoeffs(n);
+                    // Convert to paper's [c0, ..., cn] = [t_n, ..., t_0]
+                    // Use [...T_n_math] to create a shallow copy before reversing!
+                    const T_n = [...T_n_math].reverse(); 
+                    // Monic T_n is T_n / (2^(n-1))
+                    const leadingCoeff = T_n[0]; // This is c0 = t_n = 2^(n-1)
+                    coeffs = polyScale(T_n, 1 / leadingCoeff);
+                } else if (type === 'legendre') {
+                    if (n === 0) return [1];
+                    // P_n = [p_0, ..., p_n] (math standard)
+                    const P_n_math = getLegendreCoeffs(n);
+                    // Convert to paper's [c0, ..., cn] = [p_n, ..., p_0]
+                    // Use [...P_n_math] to create a shallow copy before reversing!
+                    const P_n = [...P_n_math].reverse();
+                    // Leading coeff of P_n is (2n)! / (2^n * (n!)^2)
+                    const leadingCoeff = P_n[0]; // This is c0 = p_n
+                    coeffs = polyScale(P_n, 1 / leadingCoeff);
+                }
+                
+                // Return in paper's format [c0, c1, ..., cn]
+                return coeffs;
+            }
+
+            function evalPoly(coeffs, x) {
+                const n = coeffs.length - 1;
+                let result = 0;
+                for (let i = 0; i <= n; i++) {
+                    result += coeffs[i] * Math.pow(x, n - i);
+                }
+                return result;
+            }
+
+            // --- D3 Setup for Demo 2 ---
+            const margin2 = { top: 20, right: 20, bottom: 40, left: 50 };
+            
+            // Chart 2a: Polynomial
+            const chart2PolyContainer = d3.select("#chart2-poly-container");
+            const svg2Poly = d3.select("#chart2-poly");
+            let width2Poly = 500 - margin2.left - margin2.right;
+            let height2Poly = 400 - margin2.top - margin2.bottom;
+            
+            const g2Poly = svg2Poly.append("g").attr("transform", `translate(${margin2.left},${margin2.top})`);
+            const x2Poly = d3.scaleLinear().domain([-1, 1]).range([0, width2Poly]);
+            const y2Poly = d3.scaleLinear().range([height2Poly, 0]);
+            const line2Poly = d3.line().x(d => x2Poly(d.x)).y(d => y2Poly(d.y));
+
+            const xAxis2Poly = g2Poly.append("g").attr("class", "d3-axis").attr("transform", `translate(0,${height2Poly})`);
+            const yAxis2Poly = g2Poly.append("g").attr("class", "d3-axis");
+            const yGrid2Poly = g2Poly.append("g").attr("class", "axis-grid");
+            const xZeroLine = g2Poly.append("g").attr("class", "axis-zero");
+            const polyPath = g2Poly.append("path").attr("class", "line-poly");
+
+            // Chart 2b: Coefficients
+            const chart2CoeffsContainer = d3.select("#chart2-coeffs-container");
+            const svg2Coeffs = d3.select("#chart2-coeffs");
+            let width2Coeffs = 500 - margin2.left - margin2.right;
+            let height2Coeffs = 400 - margin2.top - margin2.bottom;
+
+            const g2Coeffs = svg2Coeffs.append("g").attr("transform", `translate(${margin2.left},${margin2.top})`);
+            const x2Coeffs = d3.scaleBand().range([0, width2Coeffs]).padding(0.1);
+            const y2Coeffs = d3.scaleLog().range([height2Coeffs, 0]); // Log scale!
+
+            const xAxis2Coeffs = g2Coeffs.append("g").attr("class", "d3-axis").attr("transform", `translate(0,${height2Coeffs})`);
+            const yAxis2Coeffs = g2Coeffs.append("g").attr("class", "d3-axis");
+            const barGroup = g2Coeffs.append("g");
+
+
+            function updateDemo2() {
+                const n = +degreeSlider.property("value");
+                const type = d3.select("input[name='poly-type']:checked").property("value");
+                degreeLabel.text(n);
+
+                const coeffs = getMonicCoeffs(n, type);
+
+                // --- Update Polynomial Chart (2a) ---
+                const polyData = d3.range(-1, 1.01, 0.01).map(x => ({
+                    x: x,
+                    y: evalPoly(coeffs, x)
+                }));
+                
+                const yMax = d3.max(polyData, d => Math.abs(d.y));
+                polyMaxVal.text(yMax ? yMax.toExponential(3) : '0.0');
+                
+                // Ensure y-domain is symmetric and includes 0
+                const yDomain = Math.max(0.01, yMax); // Avoid 0 domain
+                y2Poly.domain([-yDomain * 1.1, yDomain * 1.1]);
+                
+                xAxis2Poly.call(d3.axisBottom(x2Poly));
+                yAxis2Poly.call(d3.axisLeft(y2Poly).ticks(5).tickFormat(d3.format(".1e")));
+                
+                // Update gridlines
+                yGrid2Poly.call(d3.axisLeft(y2Poly)
+                    .ticks(5)
+                    .tickSize(-width2Poly)
+                    .tickFormat("")
+                );
+                // Update x=0 axis
+                xZeroLine.call(d3.axisBottom(x2Poly)
+                    .tickValues([0])
+                    .tickSize(-height2Poly)
+                    .tickFormat("")
+                );
+                
+                polyPath.datum(polyData).attr("d", line2Poly);
+
+                // --- Update Coefficient Chart (2b) ---
+                const coeffData = coeffs.map((c, i) => ({
+                    index: `c${i}`,
+                    value: Math.abs(c) + 1e-9 // Add small epsilon for log scale
+                }));
+
+                const cMax = d3.max(coeffData, d => d.value);
+                coeffMaxVal.text(cMax ? cMax.toExponential(3) : '0.0');
+
+                x2Coeffs.domain(coeffData.map(d => d.index));
+                y2Coeffs.domain([1e-9, Math.max(1, cMax * 1.1)]);
+
+                xAxis2Coeffs.call(d3.axisBottom(x2Coeffs))
+                    .selectAll("text")
+                    .style("text-anchor", n > 15 ? "end" : "middle")
+                    .attr("dx", n > 15 ? "-.8em" : null)
+                    .attr("dy", n > 15 ? ".15em" : null)
+                    .attr("transform", n > 15 ? "rotate(-65)" : null);
+
+                yAxis2Coeffs.call(d3.axisLeft(y2Coeffs).ticks(5, d3.format(".0e")));
+                
+                barGroup.selectAll("rect")
+                    .data(coeffData)
+                    .join("rect")
+                    .attr("x", d => x2Coeffs(d.index))
+                    .attr("y", d => y2Coeffs(d.value))
+                    .attr("width", x2Coeffs.bandwidth())
+                    .attr("height", d => height2Coeffs - y2Coeffs(d.value))
+                    .attr("fill", "#ef4444"); // red-500
+            }
+
+            // Event Listeners for Demo 2
+            degreeSlider.on("input", updateDemo2);
+            polyTypeRadios.on("change", updateDemo2);
+
+            function resizeChart2() {
+                // Chart 2a
+                const containerWidthPoly = chart2PolyContainer.node().getBoundingClientRect().width;
+                width2Poly = containerWidthPoly - margin2.left - margin2.right;
+                height2Poly = (containerWidthPoly * 0.8) - margin2.top - margin2.bottom; // 4:5 aspect
+                
+                svg2Poly.attr("viewBox", `0 0 ${containerWidthPoly} ${containerWidthPoly * 0.8}`);
+                x2Poly.range([0, width2Poly]);
+                y2Poly.range([height2Poly, 0]);
+                xAxis2Poly.attr("transform", `translate(0,${height2Poly})`);
+
+                // Chart 2b
+                const containerWidthCoeffs = chart2CoeffsContainer.node().getBoundingClientRect().width;
+                width2Coeffs = containerWidthCoeffs - margin2.left - margin2.right;
+                height2Coeffs = (containerWidthCoeffs * 0.8) - margin2.top - margin2.bottom;
+
+                svg2Coeffs.attr("viewBox", `0 0 ${containerWidthCoeffs} ${containerWidthCoeffs * 0.8}`);
+                x2Coeffs.range([0, width2Coeffs]);
+                y2Coeffs.range([height2Coeffs, 0]);
+                xAxis2Coeffs.attr("transform", `translate(0,${height2Coeffs})`);
+                
+                updateDemo2(); // Redraw with new dimensions
+            }
+            
+            window.addEventListener('resize', resizeChart2);
+            resizeChart2();
+            updateDemo2(); // Initial draw
+
+
+            // --- Demo 3: DNN Preconditioning ---
+            
+            const LOOKBACK = 5; // Use 5 past points to predict next one
+            const TRAIN_STEPS = 500;
+            const SIM_STEPS = 200;
+            const EPOCHS = 10;
+            const BATCH_SIZE = 32;
+
+            let sim3State = {
+                generatorModel: null,
+                predModelBase: null,
+                predModelC4: null, // Renamed from C5
+                coeffs: {},
+                data: [],
+                predictions: { base: [], c4: [] }, // Renamed from c5
+                errors: { base: [], c4: [] }, // Renamed from c5
+                time: 0,
+                isRunning: false,
+                animationFrameId: null,
+            };
+
+            const resetBtn3 = d3.select("#reset-sim3");
+            const status3 = d3.select("#status-sim3");
+            const chebySelect3 = d3.select("#cheby-select-sim3"); // This element is removed, but we'll remove its usages
+
+            const mseDisplays = {
+                base: d3.select("#mse-base"),
+                c4: d3.select("#mse-c4") // Renamed from c5
+            };
+            const mseTableRows = d3.selectAll("#results-tbody-sim3 tr");
+
+            // --- D3 Setup for Demo 3 ---
+            const chart3Container = d3.select("#chart3-container");
+            const svg3 = d3.select("#chart3");
+            const margin3 = { top: 20, right: 20, bottom: 40, left: 50 };
+            let width3 = 500 - margin3.left - margin3.right;
+            let height3 = 400 - margin3.top - margin3.bottom;
+
+            const g3 = svg3.append("g").attr("transform", `translate(${margin3.left},${margin3.top})`);
+            const x3 = d3.scaleLinear().range([0, width3]);
+            const y3 = d3.scaleLinear().range([height3, 0]);
+            
+            const line3True = d3.line().x(d => x3(d.time)).y(d => y3(d.value));
+            const line3PredBase = d3.line().x(d => x3(d.time)).y(d => y3(d.value));
+            const line3PredCheby = d3.line().x(d => x3(d.time)).y(d => y3(d.value));
+
+            const xAxis3 = g3.append("g").attr("class", "d3-axis").attr("transform", `translate(0,${height3})`);
+            const yAxis3 = g3.append("g").attr("class", "d3-axis");
+
+            const truePath3 = g3.append("path").attr("class", "line-true");
+            const predPath3Base = g3.append("path").attr("class", "line-pred");
+            const predPath3Cheby = g3.append("path").attr("class", "line-pred-cheby");
+            
+            // --- TF.js Helper Functions ---
+
+            // Simple MLP model
+            function createDNNModel(inputDim) {
+                const model = tf.sequential();
+                model.add(tf.layers.dense({ inputShape: [inputDim], units: 16, activation: 'relu' }));
+                model.add(tf.layers.dense({ units: 16, activation: 'relu' }));
+                model.add(tf.layers.dense({ units: 1 }));
+                model.compile({ optimizer: 'adam', loss: 'meanSquaredError' });
+                return model;
+            }
+            
+            // Generator Model: Simulates an RNN/complex system
+            function createGeneratorModel() {
+                const model = tf.sequential();
+                model.add(tf.layers.dense({ inputShape: [LOOKBACK], units: 20, activation: 'tanh' }));
+                model.add(tf.layers.dense({ units: 10, activation: 'tanh' }));
+                model.add(tf.layers.dense({ units: 1 }));
+                return model; // No compilation, just for inference
+            }
+
+            // Apply preconditioning: y_tilde_t = sum(c_i * y_{t-i})
+            function transformData(data, coeffs) {
+                const n = coeffs.length - 1;
+                const transformed = new Array(data.length).fill(0);
+                for (let t = n; t < data.length; t++) {
+                    let sum = 0;
+                    for (let i = 0; i <= n; i++) {
+                        sum += coeffs[i] * data[t - i];
+                    }
+                    transformed[t] = sum;
+                }
+                return transformed;
+            }
+
+            // Invert preconditioning: y_t = y_tilde_t - sum(c_i * y_{t-i}) for i=1 to n
+            // Assumes monic (c0 = 1)
+            function invertTransform(y_tilde, past_y, coeffs) {
+                const n = coeffs.length - 1;
+                let sum = 0;
+                for (let i = 1; i <= n; i++) {
+                    sum += coeffs[i] * past_y[LOOKBACK - i]; // past_y is [y_{t-L}, ..., y_{t-1}]
+                }
+                return y_tilde - sum;
+            }
+
+            // Generate sequence data
+            async function generateData(model, length) {
+                let data = new Array(LOOKBACK).fill(0).map(() => Math.random() * 2 - 1);
+                for (let i = LOOKBACK; i < length + LOOKBACK; i++) {
+                    const input = tf.tensor2d([data.slice(i - LOOKBACK, i)]);
+                    const pred = await model.predict(input).data();
+                    const newVal = Math.tanh(pred[0]) + (Math.random() - 0.5) * 0.05; // Tanh + noise
+                    data.push(newVal);
+                    tf.dispose([input, pred]);
+                }
+                return data.slice(LOOKBACK); // Return only the generated part
+            }
+
+            // Prepare data for training
+            // Input: [y_{t-L}, ..., y_{t-1}], Target: y_t (or y_tilde_t)
+            function prepareTrainingData(data, coeffs) {
+                const n = coeffs ? coeffs.length - 1 : 0;
+                const transformedData = coeffs ? transformData(data, coeffs) : data;
+                
+                const xs = [];
+                const ys = [];
+                // Need enough history for both lookback and transform
+                const start = Math.max(LOOKBACK, n); 
+                
+                for (let t = start; t < data.length; t++) {
+                    xs.push(data.slice(t - LOOKBACK, t));
+                    ys.push(transformedData[t]);
+                }
+                
+                return {
+                    xs: tf.tensor2d(xs),
+                    ys: tf.tensor2d(ys, [ys.length, 1])
+                };
+            }
+
+            async function resetSim3() {
+                if (sim3State.animationFrameId) {
+                    cancelAnimationFrame(sim3State.animationFrameId);
+                }
+                sim3State.isRunning = false;
+                resetBtn3.property("disabled", true).text("Initializing...");
+                status3.text("Status: Initializing models...");
+
+                // Clean up old tensors
+                tf.dispose([
+                    sim3State.generatorModel, 
+                    sim3State.predModelBase, 
+                    sim3State.predModelC4 // Renamed from C5
+                ]);
+
+                // 1. Create models
+                sim3State.generatorModel = createGeneratorModel();
+                sim3State.predModelBase = createDNNModel(LOOKBACK);
+                sim3State.predModelC4 = createDNNModel(LOOKBACK); // Renamed from C5
+
+                // Get coeffs
+                sim3State.coeffs = {
+                    c4: getMonicCoeffs(4, 'chebyshev') // Changed from 5 to 4
+                };
+
+                // 2. Generate training data
+                status3.text("Status: Generating training data...");
+                const trainData = await generateData(sim3State.generatorModel, TRAIN_STEPS);
+                
+                // 3. Train models
+                const modelsToTrain = [
+                    { name: "Baseline", model: sim3State.predModelBase, coeffs: null },
+                    { name: "Cheby (n=4)", model: sim3State.predModelC4, coeffs: sim3State.coeffs.c4 }, // Changed from 5 to 4
+                ];
+
+                for (const { name, model, coeffs } of modelsToTrain) {
+                    status3.text(`Status: Training ${name}...`);
+                    const { xs, ys } = prepareTrainingData(trainData, coeffs);
+                    await model.fit(xs, ys, {
+                        epochs: EPOCHS,
+                        batchSize: BATCH_SIZE,
+                        shuffle: true,
+                        callbacks: { onEpochEnd: (epoch, logs) => {
+                            status3.text(`Status: Training ${name} (Epoch ${epoch + 1}/${EPOCHS})`);
+                        }}
+                    });
+                    tf.dispose([xs, ys]);
+                }
+
+                // 4. Setup simulation
+                status3.text("Status: Training complete. Starting sim...");
+                sim3State.data = await generateData(sim3State.generatorModel, SIM_STEPS);
+                sim3State.time = LOOKBACK;
+                sim3State.predictions = { base: [], c4: [] }; // Renamed from c5
+                sim3State.errors = { base: [], c4: [] }; // Renamed from c5
+                
+                // Pre-populate first few predictions
+                for (let i=0; i < LOOKBACK; i++) {
+                    Object.keys(sim3State.predictions).forEach(key => {
+                        sim3State.predictions[key].push({ time: i, value: sim3State.data[i] });
+                    });
+                }
+
+                sim3State.isRunning = true;
+                resetBtn3.property("disabled", false).text("Start / Reset DNN Training");
+                status3.text("Status: Running simulation...");
+                sim3State.animationFrameId = requestAnimationFrame(gameLoop3);
+            }
+            
+            function updateSim3() {
+                if (!sim3State.isRunning) return;
+
+                const t = sim3State.time;
+                if (t >= sim3State.data.length) {
+                    status3.text("Status: Simulation finished.");
+                    cancelAnimationFrame(sim3State.animationFrameId);
+                    sim3State.isRunning = false;
+                    return;
+                }
+                
+                // 1. Get current data and input
+                const y_true = sim3State.data[t];
+                const past_y = sim3State.data.slice(t - LOOKBACK, t);
+                const inputTensor = tf.tensor2d([past_y]);
+
+                // 2. Get predictions (all models predict from the *same* input)
+                const pred_base_target = sim3State.predModelBase.predict(inputTensor).dataSync()[0];
+                const pred_c4_target = sim3State.predModelC4.predict(inputTensor).dataSync()[0]; // Renamed from c5
+                
+                // 3. Invert predictions
+                const pred_y = {
+                    base: pred_base_target,
+                    c4: invertTransform(pred_c4_target, past_y, sim3State.coeffs.c4) // Renamed from c5
+                };
+
+                // 4. Store predictions and errors
+                Object.keys(pred_y).forEach(key => {
+                    sim3State.predictions[key].push({ time: t, value: pred_y[key] });
+                    const error = Math.pow(y_true - pred_y[key], 2);
+                    sim3State.errors[key].push(error);
+                });
+
+                // 5. Update MSE display
+                let mses = [];
+                Object.keys(sim3State.errors).forEach(key => {
+                    const mse = d3.mean(sim3State.errors[key]);
+                    if (mse !== undefined) {
+                        mses.push({key, mse});
+                        mseDisplays[key].text(mse.toFixed(5));
+                    }
+                });
+                
+                // Highlight best/worst MSE
+                if(mses.length > 0) {
+                    mses.sort((a, b) => a.mse - b.mse);
+                    mseTableRows.classed("best-mse", false).classed("worst-mse", false);
+                    mseDisplays[mses[0].key].node().parentNode.classList.add("best-mse");
+                    mseDisplays[mses[mses.length - 1].key].node().parentNode.classList.add("worst-mse");
+                }
+
+                // 6. Update D3 Chart
+                const displayData = sim3State.data.slice(0, t + 1).map((d, i) => ({ time: i, value: d }));
+                const displayPredBase = sim3State.predictions.base.slice(0, t + 1);
+                
+                const chebyKey = "c4"; // Hardcoded, changed from c5
+                const displayPredCheby = sim3State.predictions[chebyKey].slice(0, t + 1);
+
+                const allValues = displayData.concat(displayPredBase).concat(displayPredCheby);
+
+                x3.domain([0, sim3State.data.length]);
+                y3.domain(d3.extent(allValues, d => d.value)).nice();
+
+                xAxis3.call(d3.axisBottom(x3));
+                yAxis3.call(d3.axisLeft(y3));
+
+                truePath3.datum(displayData).attr("d", line3True);
+                predPath3Base.datum(displayPredBase).attr("d", line3PredBase);
+                predPath3Cheby.datum(displayPredCheby).attr("d", line3PredCheby);
+
+                tf.dispose(inputTensor); // Clean up tensor
+            }
+
+            function gameLoop3() {
+                if (!sim3State.isRunning) return;
+                updateSim3();
+                sim3State.time++;
+                sim3State.animationFrameId = requestAnimationFrame(gameLoop3);
+            }
+
+            // Event Listeners for Demo 3
+            resetBtn3.on("click", resetSim3);
+            // No longer need chebySelect3 listener
+            // chebySelect3.on("change", () => { ... });
+
+            function resizeChart3() {
+                const containerWidth = chart3Container.node().getBoundingClientRect().width;
+                width3 = containerWidth - margin3.left - margin3.right;
+                height3 = (containerWidth * 0.8) - margin3.top - margin3.bottom; // 4:5 aspect
+                
+                svg3.attr("viewBox", `0 0 ${containerWidth} ${containerWidth * 0.8}`);
+                x3.range([0, width3]);
+                y3.range([height3, 0]);
+                xAxis3.attr("transform", `translate(0,${height3})`);
+
+                // Redraw if data exists
+                if(sim3State.data.length > 0) {
+                    // --- BUG FIX ---
+                    // 't' was undefined here. We need to get the current time from the state.
+                    const t = sim3State.time; 
+                    // --- END FIX ---
+                    
+                    const displayData = sim3State.data.slice(0, t + 1).map((d, i) => ({ time: i, value: d }));
+                    const displayPredBase = sim3State.predictions.base.slice(0, t + 1);
+                    const chebyKey = "c4"; // Hardcoded, changed from c5
+                    const displayPredCheby = sim3State.predictions[chebyKey].slice(0, t + 1);
+                    
+                    const allValues = displayData.concat(displayPredBase).concat(displayPredCheby);
+                    
+                    x3.domain([0, sim3State.data.length]);
+                    y3.domain(d3.extent(allValues, d => d.value)).nice();
+                    
+                    xAxis3.call(d3.axisBottom(x3));
+                    yAxis3.call(d3.axisLeft(y3));
+
+                    truePath3.datum(displayData).attr("d", line3True);
+                    predPath3Base.datum(displayPredBase).attr("d", line3PredBase);
+                    predPath3Cheby.datum(displayPredCheby).attr("d", line3PredCheby);
+                }
+            }
+            
+            window.addEventListener('resize', resizeChart3);
+            resizeChart3();
+
+
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
