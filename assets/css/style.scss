@@ -45,3 +45,33 @@ iframe {
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-post {
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.blog-post h2 {
+  margin-bottom: 0.15em;
+}
+
+.blog-date {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.blog-excerpt {
+  color: #555;
+  margin-top: 0.5em;
+  line-height: 1.5;
+}
