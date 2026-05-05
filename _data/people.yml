@@ -4,43 +4,68 @@ elad:
   title: Professor at Princeton University
   website: http://www.ehazan.com/
   status: current
+rohit:
+  name: Rohit Agarwal
+  title: Graduate Student at Princeton University
+  website: https://girantinas.github.io/
+  status: current
+liane:
+  name: Liane Galanti
+  title: Graduate Student at Princeton University
+  website: https://lianegalanti.github.io/
+  status: current
+gon:
+  name: Gon Buzaglo
+  title: Graduate Student at Princeton University
+  website: https://www.buzaglo.me/
+  status: current
+angelos:
+  name: Angelos Assos
+  title: Graduate Student at Princeton University
+  website: https://angelosassos.github.io/
+  status: current
+anand:
+  name: Anand Brahmbhatt
+  title: Graduate Student at Princeton University
+  website: https://anand-10-prog.github.io/
+  status: current
+
+# Former members
 xinyi:
   name: Xinyi Chen
   title: Graduate Student at Princeton University
   website: https://xinyi.github.io/
-  status: current
+  status: former
 edgar:
   name: Edgar Minasyan
   title: Graduate Student at Princeton University
   website: https://minasyan.github.io/
-  status: current
+  status: former
 nataly:
   name: Nataly Brukhim
   title: Graduate Student at Princeton University
   website: https://www.cs.princeton.edu/~nbrukhim/
-  status: current
+  status: former
 udaya:
   name: Udaya Ghai
   title: Graduate Student at Princeton University
   website: https://www.cs.princeton.edu/~ughai/
-  status: current
+  status: former
 wenhan:
   name: Wenhan Xia
   title: Graduate Student at Princeton University
   website: https://ece.princeton.edu/people/wenhan-xia
-  status: current
+  status: former
 jennifer:
   name: Jennifer Sun
   title: Graduate Student at Princeton University
   website: https://ehazan.com
-  status: current
+  status: former
 zhou:
   name: Zhou Lu
   title: Graduate Student at Princeton University
   website: https://leozoroaster.github.io/
-  status: current
-  
-# Former members
+  status: former
 brian:
   name: Brian Bullins
   title: Professor at Purdue University
