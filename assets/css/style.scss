@@ -3,8 +3,27 @@
 
 @import "jekyll-theme-minimal";
 
-.navigation span {
-  padding-right: 0.5em;
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.navigation span a {
+  display: inline-block;
+  padding: 0.4em 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #267CB9;
+  font-size: 0.95em;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.navigation span a:hover {
+  background-color: #267CB9;
+  color: #fff;
+  border-color: #267CB9;
 }
 
 pre {
