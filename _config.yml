@@ -3,6 +3,7 @@ logo: /assets/img/nabla-cool.svg
 description: Hazan Lab @ Princeton University
 show_downloads: false
 theme: jekyll-theme-minimal
+authors: ["elad"]
 defaults:
   -
     scope:
