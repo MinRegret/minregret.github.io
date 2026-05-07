@@ -1,5 +1,5 @@
 title: Minimizing Regret
-logo: https://raw.githubusercontent.com/MinRegret/deluca/dev/assets/img/deluca.svg?token=AAURLVRRLKHPK4VELPKH6X27RW5LC
+logo:
 description: Hazan Lab @ Princeton University
 show_downloads: false
 theme: jekyll-theme-minimal
@@ -20,4 +20,3 @@ defaults:
       layout: "default"
       tags: false
 
-google_analytics:

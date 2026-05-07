@@ -7,7 +7,7 @@ title: Research
 
 ## Sequence Prediction and Spectral Transformers
 
-- Recent research from our lab connects learning in dynamical systems to sequence perdiction via a new architecture called [Spectral Transformers](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers), more information and recent publications in [this link](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers). 
+- Recent research from our lab connects learning in dynamical systems to sequence prediction via a new architecture called [Spectral Transformers](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers), more information and recent publications in [this link](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers). This research is done in collaboration with [Google DeepMind Princeton](https://sites.google.com/view/gbrainprinceton/home).
 
 ## Control and Reinforcement Learning
 
@@ -21,8 +21,6 @@ title: Research
 - Combining time series and control algorithms via the new technique of [Boosting for Dynamical Systems](https://arxiv.org/abs/1906.08720).
 
 - The [Spectral Filtering](https://arxiv.org/abs/1711.00946), technique, and its [application to asymmetric](https://arxiv.org/abs/1802.03981) linear dynamical systems.
-
-<!--- Learning auto-regressive moving-average [time series with adversarial noise](http://proceedings.mlr.press/v30/Anava13.pdf). -->
 
 - [Maximum-entropy exploration](https://arxiv.org/abs/1812.02690) in partially observed and/or approximated Markov Decision Processes.
 
@@ -41,7 +39,7 @@ Machine learning moves us from the custom-designed algorithm to generic models, 
 {% assign image = "projection-free.jpg" %}
 {% include center-image.html %}
 
-## Online Convex Optimizatiom
+## Online Convex Optimization
 
 In recent years, convex optimization and the notion of regret minimization in games, have been combined and applied to machine learning in a general framework called online convex optimization. For more information see [graduate text book](http://ocobook.cs.princeton.edu/) on online convex optimization in machine learning, or survey on the [convex optimization approach to regret minimization](https://pdfs.semanticscholar.org/cea0/1bd3c778418117f447417f7c457eac94f992.pdf). Our research spans [efficient online algorithms](https://dl.acm.org/citation.cfm?id=1296051) as well as [matrix prediction](https://arxiv.org/abs/1204.0136) algorithms, and [decision making under uncertainty and continuous multi-armed bandits](https://ieeexplore.ieee.org/document/6191328?arnumber=6191328).
 

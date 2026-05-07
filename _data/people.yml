@@ -4,43 +4,68 @@ elad:
   title: Professor at Princeton University
   website: http://www.ehazan.com/
   status: current
+rohit:
+  name: Rohit Agarwal
+  title: Graduate Student at Princeton University
+  website: https://girantinas.github.io/
+  status: current
+liane:
+  name: Liane Galanti
+  title: Graduate Student at Princeton University
+  website: https://lianegalanti.github.io/
+  status: current
+gon:
+  name: Gon Buzaglo
+  title: Graduate Student at Princeton University
+  website: https://www.buzaglo.me/
+  status: current
+angelos:
+  name: Angelos Assos
+  title: Graduate Student at Princeton University
+  website: https://angelosassos.github.io/
+  status: current
+anand:
+  name: Anand Brahmbhatt
+  title: Graduate Student at Princeton University
+  website: https://anand-10-prog.github.io/
+  status: current
+
+# Former members
 xinyi:
   name: Xinyi Chen
-  title: Graduate Student at Princeton University
+  title: Research Scientist at Google DeepMind
   website: https://xinyi.github.io/
-  status: current
+  status: former
 edgar:
   name: Edgar Minasyan
-  title: Graduate Student at Princeton University
+  title: Research Scientist at Nvidia
   website: https://minasyan.github.io/
-  status: current
+  status: former
 nataly:
   name: Nataly Brukhim
-  title: Graduate Student at Princeton University
-  website: https://www.cs.princeton.edu/~nbrukhim/
-  status: current
+  title: Postdoc at Institute for Advanced Study
+  website: https://nbrukhim.com/
+  status: former
 udaya:
   name: Udaya Ghai
-  title: Graduate Student at Princeton University
-  website: https://www.cs.princeton.edu/~ughai/
-  status: current
+  title: Senior Applied Scientist at AWS
+  website: https://www.udayaghai.com/
+  status: former
 wenhan:
   name: Wenhan Xia
-  title: Graduate Student at Princeton University
-  website: https://ece.princeton.edu/people/wenhan-xia
-  status: current
+  title: Research Engineer at Google Research
+  website: https://wenhanlunaxia.github.io/
+  status: former
 jennifer:
   name: Jennifer Sun
-  title: Graduate Student at Princeton University
-  website: https://ehazan.com
-  status: current
+  title: Quantitative Analyst at D.E. Shaw
+  website: https://jysun105.github.io/
+  status: former
 zhou:
   name: Zhou Lu
-  title: Graduate Student at Princeton University
+  title: Research Scientist at Meta
   website: https://leozoroaster.github.io/
-  status: current
-  
-# Former members
+  status: former
 brian:
   name: Brian Bullins
   title: Professor at Purdue University
@@ -63,7 +88,7 @@ cyril:
   status: former
 paula:
   name: Paula Gradu
-  title: Graduate Student at University of California at Berkeley
+  title: PhD Candidate at UC Berkeley
   website: https://paula-gradu.github.io/
   status: former
 daniel:

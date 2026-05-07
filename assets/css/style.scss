@@ -3,8 +3,27 @@
 
 @import "jekyll-theme-minimal";
 
-.navigation span {
-  padding-right: 0.5em;
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.navigation span a {
+  display: inline-block;
+  padding: 0.4em 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #267CB9;
+  font-size: 0.95em;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.navigation span a:hover {
+  background-color: #267CB9;
+  color: #fff;
+  border-color: #267CB9;
 }
 
 pre {
@@ -44,4 +63,34 @@ iframe {
 .MathJax_Display, .MJXc-display, .MathJax_SVG_Display {
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-post {
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.blog-post h2 {
+  margin-bottom: 0.15em;
+}
+
+.blog-date {
+  color: #999;
+  font-size: 0.85em;
+}
+
+.blog-excerpt {
+  color: #555;
+  margin-top: 0.5em;
+  line-height: 1.5;
 }
