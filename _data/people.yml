@@ -33,7 +33,7 @@ anand:
 # Former members
 xinyi:
   name: Xinyi Chen
-  title: Graduate Student at Princeton University
+  title: Research Scientist at Google DeepMind
   website: https://xinyi.github.io/
   status: former
 edgar:
@@ -43,13 +43,13 @@ edgar:
   status: former
 nataly:
   name: Nataly Brukhim
-  title: Graduate Student at Princeton University
-  website: https://www.cs.princeton.edu/~nbrukhim/
+  title: Postdoc at Institute for Advanced Study
+  website: https://nbrukhim.com/
   status: former
 udaya:
   name: Udaya Ghai
-  title: Graduate Student at Princeton University
-  website: https://www.cs.princeton.edu/~ughai/
+  title: Senior Applied Scientist at AWS
+  website: https://www.udayaghai.com/
   status: former
 wenhan:
   name: Wenhan Xia
@@ -58,12 +58,12 @@ wenhan:
   status: former
 jennifer:
   name: Jennifer Sun
-  title: Graduate Student at Princeton University
-  website: https://ehazan.com
+  title: Quantitative Analyst at D.E. Shaw
+  website: https://jysun105.github.io/
   status: former
 zhou:
   name: Zhou Lu
-  title: Graduate Student at Princeton University
+  title: Research Scientist at Meta
   website: https://leozoroaster.github.io/
   status: former
 brian:
@@ -88,7 +88,7 @@ cyril:
   status: former
 paula:
   name: Paula Gradu
-  title: Graduate Student at University of California at Berkeley
+  title: PhD Candidate at UC Berkeley
   website: https://paula-gradu.github.io/
   status: former
 daniel:
