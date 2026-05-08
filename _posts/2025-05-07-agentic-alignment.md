@@ -1,6 +1,6 @@
 ---
 title: "AI Alignment via Incentives and Correction"
-authors: [rohit, joshua, mark, elad]
+authors: [rohit, "Joshua Lin", "Mark Braverman", elad]
 layout: post
 ---
 

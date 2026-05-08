@@ -29,16 +29,6 @@ anand:
   title: Graduate Student at Princeton University
   website: https://anand-10-prog.github.io/
   status: current
-joshua:
-  name: Joshua Lin
-  title: Graduate Student at Princeton University
-  website: https://joshualin.io/
-  status: current
-mark:
-  name: Mark Braverman
-  title: Professor at Princeton University
-  website: https://mbraverm.princeton.edu/
-  status: current
 
 # Former members
 xinyi:
