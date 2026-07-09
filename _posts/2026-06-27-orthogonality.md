@@ -1,6 +1,6 @@
 ---
 title: "The Statistical Orthogonality Thesis"
-authors: [elad, "Helen Qu", "Lauren Li"]
+authors: [elad, helen, lauren]
 layout: post
 ---
 
