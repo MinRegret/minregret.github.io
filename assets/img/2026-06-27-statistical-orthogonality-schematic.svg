@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" role="img" aria-labelledby="title desc">
+  <title id="title">Statistical orthogonality schematic</title>
+  <desc id="desc">A scatter plot showing alignment increasing with capability, illustrating a positive statistical correlation among possible agents.</desc>
+  <rect width="720" height="460" fill="#ffffff"/>
+  <g transform="translate(92 58)">
+    <rect x="0" y="0" width="548" height="318" fill="#f8fafc" stroke="#d7dee8"/>
+    <g stroke="#e7ebf1" stroke-width="1">
+      <line x1="0" y1="53" x2="548" y2="53"/>
+      <line x1="0" y1="106" x2="548" y2="106"/>
+      <line x1="0" y1="159" x2="548" y2="159"/>
+      <line x1="0" y1="212" x2="548" y2="212"/>
+      <line x1="0" y1="265" x2="548" y2="265"/>
+      <line x1="91" y1="0" x2="91" y2="318"/>
+      <line x1="183" y1="0" x2="183" y2="318"/>
+      <line x1="274" y1="0" x2="274" y2="318"/>
+      <line x1="365" y1="0" x2="365" y2="318"/>
+      <line x1="457" y1="0" x2="457" y2="318"/>
+    </g>
+    <g fill="#5b8cc0" opacity=".3">
+      <circle cx="45" cy="267" r="7"/>
+      <circle cx="75" cy="250" r="6"/>
+      <circle cx="96" cy="232" r="8"/>
+      <circle cx="121" cy="242" r="6"/>
+      <circle cx="142" cy="218" r="7"/>
+      <circle cx="168" cy="206" r="8"/>
+      <circle cx="199" cy="189" r="7"/>
+      <circle cx="225" cy="196" r="6"/>
+      <circle cx="247" cy="168" r="8"/>
+      <circle cx="279" cy="151" r="7"/>
+      <circle cx="304" cy="163" r="6"/>
+      <circle cx="331" cy="130" r="8"/>
+      <circle cx="358" cy="119" r="7"/>
+      <circle cx="388" cy="104" r="8"/>
+      <circle cx="417" cy="91" r="7"/>
+      <circle cx="449" cy="78" r="8"/>
+      <circle cx="481" cy="59" r="7"/>
+      <circle cx="512" cy="48" r="8"/>
+    </g>
+    <line x1="38" y1="264" x2="520" y2="47" stroke="#2f6f9f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M0 318 H548" fill="none" stroke="#1f2937" stroke-width="2"/>
+    <path d="M0 318 V0" fill="none" stroke="#1f2937" stroke-width="2"/>
+    <text x="274" y="372" text-anchor="middle" font-family="Noto Sans, Arial, sans-serif" font-size="20" fill="#111827">Capability</text>
+    <text x="-158" y="-52" text-anchor="middle" transform="rotate(-90)" font-family="Noto Sans, Arial, sans-serif" font-size="20" fill="#111827">Alignment</text>
+    <text x="285" y="33" font-family="Noto Sans, Arial, sans-serif" font-size="18" fill="#2f6f9f">Typicality under selection</text>
+    <text x="292" y="57" font-family="Noto Sans, Arial, sans-serif" font-size="14" fill="#475569">some regions are more likely</text>
+  </g>
+  <text x="360" y="32" text-anchor="middle" font-family="Noto Sans, Arial, sans-serif" font-size="23" font-weight="700" fill="#111827">Statistical Orthogonality</text>
+  <text x="360" y="430" text-anchor="middle" font-family="Noto Sans, Arial, sans-serif" font-size="15" fill="#475569">Logical possibility permits all points; concrete training and evolution may concentrate probability mass.</text>
+</svg>
