@@ -2,6 +2,10 @@
   {% capture author_byline %}
     <a href='{{ site.data.people[author].website }}'>{{ site.data.people[author].name }}</a>
   {% endcapture %}
+{% elsif page.author_links[author] %}
+  {% capture author_byline %}
+    <a href='{{ page.author_links[author] }}'>{{ author }}</a>
+  {% endcapture %}
 {% else %}
   {% assign author_byline = author %}
 {% endif %}
