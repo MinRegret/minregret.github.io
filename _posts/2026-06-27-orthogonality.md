@@ -12,7 +12,7 @@ But our world is probabilistic, even if it appears deterministic. A useful demon
 
 The relationship between intelligence and goals should be reasoned about in a similar manner (Figure 1). Orthogonality may be true as a statement about what kinds of minds are possible, while misleading as a statement about what evolution and training processes are likely to produce. Call this the statistical orthogonality thesis: intelligence and values are separable in principle, but correlated in practice.
 
-{% assign image = "2026-06-27-statistical-orthogonality-schematic.svg" %}
+{% assign image = "2026-06-27-statistical-orthogonality-distributions.png" %}
 {% include center-image.html %}
 
 *Figure 1. The original orthogonality thesis is a claim about possibility: many combinations of capability and alignment are logically allowed. Our statistical orthogonality thesis instead asks about typicality: under concrete processes such as evolution and training, some regions of alignment-capability space may be much more likely than others. In this schematic example, alignment and capability are positively correlated.*
