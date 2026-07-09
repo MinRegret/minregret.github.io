@@ -1,6 +1,11 @@
 ---
 title: "The Statistical Orthogonality Thesis"
-authors: [elad, helen, lauren]
+authors:
+  - elad
+  - name: Helen Qu
+    website: https://helenqu.com/
+  - name: Lauren Li
+    website: https://phy.princeton.edu/people/lauren-li
 layout: post
 ---
 
