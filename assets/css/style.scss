@@ -94,3 +94,23 @@ iframe {
   margin-top: 0.5em;
   line-height: 1.5;
 }
+
+.oco-photo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+.oco-photo-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .oco-photo-pair {
+    grid-template-columns: 1fr;
+  }
+}
