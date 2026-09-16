@@ -4,7 +4,7 @@ authors: [elad]
 permalink: /2026/09/15/two-decades-of-online-convex-optimization.html
 ---
 
-<small> _ (note: in this I’m inevitably leaving out many wonderful collaborators and stories, forgive me! In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own, as do my interactions w. Adam Kalai, Sham Kakade, Shay Moran, Paula Gradu, and many others.) _ </small>
+<small> ' (note: in this I’m inevitably leaving out many wonderful collaborators and stories, see end and forgive me! ' </small>
 
 I began working on online convex optimization as a third-year graduate student. At that time, [Zinkevich’s paper](https://www.cs.cmu.edu/~maz/publications/techconvex.pdf) came out, and we were reading [Cover’s paper on universal portfolios](https://isl.stanford.edu/~cover/papers/paper93.pdf) with fellow students (more about my friendship w. [Satyen Kale](https://www.satyenkale.com/) later).
 
@@ -120,3 +120,7 @@ And then came a twist: these ideas brought us back to deep learning. With [Naman
 Looking back, I don’t think it’s a coincidence that it all started due to my fear of not getting an academic job. It moved me on the path from theorem proving prowess (which was a competitive field) to framework building. In the age of AI, I would make the choice deliberately. As AI gets better at proving theorems, choosing interesting questions and building new frameworks becomes even more important. For me, that was always the more valuable part.
 
 I’m very very happy with the science of OCO. It exceeded my expectations in all respects, mathematical elegance and practical relevance. But undoubtedly, my main achievements are the relationships built along that road, with students and collaborators. I have zero regret :-)
+
+<small> ' My apologies for leaving out many collaborations and interactions. In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own, as do my interactions w. Adam Kalai, Sham Kakade, Shay Moran, Paula Gradu, Xinyi Chen, Jennifer Sun, and many others. ' </small>
+
+
