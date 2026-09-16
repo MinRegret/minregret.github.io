@@ -1,6 +1,7 @@
 ---
 title: "Two decades of online convex optimization: a personal recollection"
 authors: [elad]
+permalink: /2026/09/15/two-decades-of-online-convex-optimization.html
 ---
 
 I began working on online convex optimization as a third-year graduate student. At that time, [Zinkevich’s paper](https://www.cs.cmu.edu/~maz/publications/techconvex.pdf) came out, and we were reading [Cover’s paper on universal portfolios](https://isl.stanford.edu/~cover/papers/paper93.pdf) with fellow students (more about my friendship w. [Satyen Kale](https://www.satyenkale.com/) later).
