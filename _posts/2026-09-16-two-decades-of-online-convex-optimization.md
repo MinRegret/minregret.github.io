@@ -4,7 +4,7 @@ authors: [elad]
 permalink: /2026/09/15/two-decades-of-online-convex-optimization.html
 ---
 
-(note: in this I’m inevitably leaving out many wonderful collaborators and stories, forgive me! In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own, as do my interactions w. Adam Kalai, Sham Kakade, Shay Moran, Paula Gradu, and many others.)
+<small>'(note: in this I’m inevitably leaving out many wonderful collaborators and stories, forgive me! In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own, as do my interactions w. Adam Kalai, Sham Kakade, Shay Moran, Paula Gradu, and many others.)'<\small>
 
 I began working on online convex optimization as a third-year graduate student. At that time, [Zinkevich’s paper](https://www.cs.cmu.edu/~maz/publications/techconvex.pdf) came out, and we were reading [Cover’s paper on universal portfolios](https://isl.stanford.edu/~cover/papers/paper93.pdf) with fellow students (more about my friendship w. [Satyen Kale](https://www.satyenkale.com/) later).
 
