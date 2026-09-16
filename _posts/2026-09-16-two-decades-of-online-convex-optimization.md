@@ -66,7 +66,7 @@ All of this was accompanied by an amazing sense of camaraderie. We didn’t need
   </figure>
 </div>
 
-I recall a particular NeurIPS, perhaps 2009, which was held in Vancouver, Canada. I needed to extend my visa, and was basically denied, or told to expect a few months of processing, during which I had to remain outside the US. I explained at the consulate that I have a baby at home in California. To no avail - I was stuck, and had no clue what to do.
+I recall a particular NeurIPS, perhaps 2008, which was held in Vancouver, Canada. I needed to extend my visa, and was basically denied, or told to expect a few months of processing, during which I had to remain outside the US. I explained at the consulate that I have a baby at home in California. To no avail - I was stuck, and had no clue what to do.
 
 A friend in need is a friend indeed: Satyen stayed with me in Vancouver, rented a hotel room next to mine (or stayed with me, I don’t remember), and we worked and hung out till I figured out what to do (it ended up being a trip to Patagonia… :-). During that time we wrote three new papers together!
 
