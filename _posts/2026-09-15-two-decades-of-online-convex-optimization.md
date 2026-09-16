@@ -27,6 +27,8 @@ Perhaps the largest impact of the field is the development of [adaptive gradient
 
 After grad school, I went to do a postdoc in the famed “theory group” of IBM Almaden, hosted by the excellent mathematician [Nimrod Megiddo](https://theory.stanford.edu/~megiddo/bio.html). From the very start, my goal was to be a professor in my home country of Israel. But I had no Israeli connections and an Indian-American advisor…
 
+I’m inevitably leaving out many wonderful collaborators and stories—forgive me! In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own.
+
 So, motivated by networking with senior Israeli professors, I went to seek out the great optimizer Yoram Singer. It was easy - Yoram knew me from our [2006 ONS paper](https://www.satyenkale.com/papers/log-regret.pdf), which he loved (and later used ideas from to create [Pegasos](https://home.ttic.edu/~shai/papers/ShalevSiSr07.pdf), with my friends [Shai Shalev-Shwartz](https://www.cs.huji.ac.il/~shais/) and [Nati Srebro](https://nati.ttic.edu/)).
 
 Yoram, to his credit, was as open in research as you can be. He welcomed me to his office at Google MTV, and together with John Duchi, back then a student from Berkeley who biked back and forth about an hour every day from Berkeley to the Mountain View campus of Google, we set out to improve optimization. I LOVED the MTV campus: free food and amazing nerdy vibe, an ideal environment for research.
@@ -53,13 +55,41 @@ The postdoc years up to my first faculty job were a golden age for online convex
 All of this was accompanied by an amazing sense of camaraderie. We didn’t need to complete each other's sentences; it was like we were on the same frequency. We even liked the same food and hangouts.
 
 <div class="oco-photo-pair">
-  <a href="/assets/img/2026-09-15-oco-collaborators-whiteboard.png"><img src="/assets/img/2026-09-15-oco-collaborators-whiteboard.png" alt="Two collaborators standing in front of a whiteboard covered with equations" width="1134" height="812" loading="lazy"></a>
-  <a href="/assets/img/2026-09-15-oco-collaborators-lounge.png"><img src="/assets/img/2026-09-15-oco-collaborators-lounge.png" alt="Two collaborators together in a university lounge" width="920" height="650" loading="lazy"></a>
+  <figure class="oco-photo">
+    <a href="/assets/img/2026-09-15-oco-collaborators-whiteboard.png"><img src="/assets/img/2026-09-15-oco-collaborators-whiteboard.jpg" alt="Two collaborators standing in front of a whiteboard covered with equations" width="1134" height="812" loading="lazy"></a>
+    <figcaption>Satyen and me at the whiteboard, during grad school.</figcaption>
+  </figure>
+  <figure class="oco-photo">
+    <a href="/assets/img/2026-09-15-oco-collaborators-lounge.png"><img src="/assets/img/2026-09-15-oco-collaborators-lounge.jpg" alt="Two collaborators together in a university lounge" width="920" height="650" loading="lazy"></a>
+    <figcaption>Satyen and me during grad school.</figcaption>
+  </figure>
 </div>
 
 I recall a particular NeurIPS, perhaps 2009, which was held in Vancouver, Canada. I needed to extend my visa, and was basically denied, or told to expect a few months of processing, during which I had to remain outside the US. I explained at the consulate that I have a baby at home in California. To no avail - I was stuck, and had no clue what to do.
 
 A friend in need is a friend indeed: Satyen stayed with me in Vancouver, rented a hotel room next to mine (or stayed with me, I don’t remember), and we worked and hung out till I figured out what to do (it ended up being a trip to Patagonia… :-). During that time we wrote three new papers together!
+
+## Young faculty days
+
+The dream came true: I got a faculty position in Israel, at the Technion (which is a top tier school), in the faculty of industrial engineering (which was not my first choice). Not only that, I met the great Arkadi Nemirovski in his final days as faculty there. Could not be more perfect.
+
+But actually it could. No one prepared me for the sheer joy of advising grad students. A relationship like no other - whatever you put in, you get 10x back. I advised four graduate students, three of whom became amazing professors: [Tomer Koren](https://tomerkoren.github.io/), [Dan Garber](https://dangar.net.technion.ac.il/) and [Kfir Levy](https://kfiryehud.wixsite.com/kfir-y-levy). OCO was progressing at that time, with results from all over the world, and also from my small piece of heaven. My friends visited, including Jake Abernethy, [Manfred Warmuth](https://mwarmuth.bitbucket.io/), [Sham Kakade](https://shamulent.github.io/), [Alex Madry](https://madry.mit.edu/), Satyen of course, and many more. Some of my favorite results from that time:
+
+1. [Playing non-linear games with linear oracles](https://arxiv.org/abs/1301.4666), with Dan Garber
+2. [The equivalence of Blackwell approachability and no-regret learning](https://proceedings.mlr.press/v19/abernethy11b.html), with Jake Abernethy and Peter Bartlett
+3. [Beating SGD: learning SVMs in sublinear time](https://papers.neurips.cc/paper_files/paper/2011/hash/5f2c22cb4a5380af7ca75622a6426917-Abstract.html), with Tomer Koren and Nati Srebro
+4. [Tight bounds for stochastic and online logistic regression](https://arxiv.org/abs/1405.3843), with Tomer Koren and Kfir Levy
+
+<div class="oco-photo-pair oco-photo-pair-technion">
+  <figure class="oco-photo">
+    <a href="/assets/img/2026-09-15-oco-technion-office.png"><img src="/assets/img/2026-09-15-oco-technion-office.jpg" alt="Two collaborators embracing in an office" width="2048" height="1536" loading="lazy"></a>
+    <figcaption>Jake Abernethy and me in my Technion office.</figcaption>
+  </figure>
+  <figure class="oco-photo">
+    <a href="/assets/img/2026-09-15-oco-technion-friends.png"><img class="oco-photo-night" src="/assets/img/2026-09-15-oco-technion-friends.jpg" alt="Four friends standing together outside at night" width="1473" height="1970" loading="lazy"></a>
+    <figcaption>With my students Tomer Koren, Kfir Levy and <a href="https://www.linkedin.com/in/oren-anava-ba97954b/">Oren Anava</a> during the Technion years, outside Alabama, a smoked-meat restaurant. Dan Garber is missing—he’s vegetarian :-)</figcaption>
+  </figure>
+</div>
 
 ## Dynamical systems, control, and spectral transformers
 
@@ -74,8 +104,14 @@ Control added another complication: an action changes not only the current loss,
 And then came a twist: these ideas brought us back to deep learning. With [Naman Agarwal](https://naman33k.github.io/), [Daniel Suo](https://www.danielsuo.com/), and [Xinyi Chen](https://xinyi.github.io/), we used spectral filtering to build [spectral state space models](https://arxiv.org/abs/2312.06837), and later [Flash STU](https://arxiv.org/abs/2409.10489). A representation developed for a regret theorem had become part of a neural architecture. Not quite what we had in mind when we started reading Cover :-)
 
 <div class="oco-photo-pair">
-  <a href="/assets/img/2026-09-15-oco-group-office.png"><img src="/assets/img/2026-09-15-oco-group-office.png" alt="Research group gathered in an office" width="900" height="675" loading="lazy"></a>
-  <a href="/assets/img/2026-09-15-oco-group-dinner.png"><img src="/assets/img/2026-09-15-oco-group-dinner.png" alt="Research group gathered around a dinner table" width="2048" height="1163" loading="lazy"></a>
+  <figure class="oco-photo">
+    <a href="/assets/img/2026-09-15-oco-group-office.png"><img src="/assets/img/2026-09-15-oco-group-office.jpg" alt="Research group gathered in an office" width="900" height="675" loading="lazy"></a>
+    <figcaption>My early lab at Princeton. From left to right: Xinyi, Karan, <a href="https://bbullins.github.io/">Brian</a>, me and Naman.</figcaption>
+  </figure>
+  <figure class="oco-photo">
+    <a href="/assets/img/2026-09-15-oco-group-dinner.png"><img src="/assets/img/2026-09-15-oco-group-dinner.jpg" alt="Research group gathered around a dinner table" width="2048" height="1163" loading="lazy"></a>
+    <figcaption>Dinner with my Princeton students. Around the table: Cyril, me, <a href="https://leozoroaster.github.io/">Zhou</a>, <a href="https://www.udayaghai.com/">Udaya</a>, <a href="https://nbrukhim.com/">Nataly</a>, <a href="https://wenhanlunaxia.github.io/">Wenhan</a>, Naman, <a href="https://jysun105.github.io/">Jennifer</a> and Xinyi.</figcaption>
+  </figure>
 </div>
 
 ## A final word

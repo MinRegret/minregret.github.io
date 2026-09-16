@@ -103,10 +103,43 @@ iframe {
   align-items: start;
 }
 
-.oco-photo-pair img {
+.oco-photo {
+  margin: 0;
+  min-width: 0;
+}
+
+.oco-photo a {
+  display: block;
+  overflow: hidden;
+}
+
+.oco-photo img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.oco-photo figcaption {
+  margin-top: 8px;
+  color: #666;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.oco-photo-pair-technion img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.oco-photo-pair-technion .oco-photo-night {
+  object-position: center 85%;
+  filter: brightness(1.12);
+}
+
+.oco-photo-stack {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 24px;
 }
 
 @media screen and (max-width: 480px) {

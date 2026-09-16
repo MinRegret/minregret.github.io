@@ -5,6 +5,7 @@ show_downloads: false
 theme: jekyll-theme-minimal
 authors: ["elad"]
 exclude:
+  - vendor
   - Two_decades_of_OCO_revised.docx
 defaults:
   -
