@@ -121,6 +121,6 @@ Looking back, I don’t think it’s a coincidence that it all started due to my
 
 I’m very very happy with the science of OCO. It exceeded my expectations in all respects, mathematical elegance and practical relevance. But undoubtedly, my main achievements are the relationships built along that road, with students and collaborators. I have zero regret :-)
 
-<small> _My apologies for leaving out many collaborations and interactions. In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own, as do my interactions with my amazing advisor Sanjeev Arora, as do my interactions w. Adam Kalai, Sham Kakade, Shay Moran, Paula Gradu, Xinyi Chen, Jennifer Sun, Annie Marsden, and many others._ </small>
+<small> _My apologies for leaving out many collaborations and interactions. In particular, my work with [Jake Abernethy](https://jakeabernethy.github.io/) and [Sasha Rakhlin](https://www.mit.edu/~rakhlin/) on bandit optimization deserves a story of its own, as do my interactions with my amazing advisor Sanjeev Arora, as do my interactions w. Adam Kalai, Sham Kakade, Shay Moran, Paula Gradu, Ofer Dekel, Xinyi Chen, Jennifer Sun, Annie Marsden, and many others._ </small>
 
 
