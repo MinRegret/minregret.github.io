@@ -104,24 +104,24 @@ tomer:
   website: https://tomerkoren.github.io/
   status: former
   alumni_affiliation: Technion
-  image: false
+  image_source: https://tomerkoren.github.io/public/photo.jpg
 kfir:
   name: Kfir Levy
   title: Associate Professor at Technion
   website: https://kfiryehud.wixsite.com/kfir-y-levy
   status: former
   alumni_affiliation: Technion
-  image: false
+  image_source: https://static.wixstatic.com/media/d538ac_73cb3cce5f4b4c8bb429325a22f5e9ec.jpg
 dan:
   name: Dan Garber
   title: Associate Professor at Technion
   website: https://dds.technion.ac.il/people/academic-staff/dan-garber/
   status: former
   alumni_affiliation: Technion
-  image: false
+  image_source: https://dds.technion.ac.il/wp-content/uploads/Academic_Staff/Dan_Garber.png
 oren:
   name: Oren Anava
   website: https://scholar.google.com/citations?hl=en&user=5qS0n84AAAAJ
   status: former
   alumni_affiliation: Technion
-  image: false
+  image_source: https://sublrn.net.technion.ac.il/files/2012/12/oren_anava-2-254x300.jpg
