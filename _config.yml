@@ -1,6 +1,7 @@
 title: Minimizing Regret
-logo: /assets/img/deluca.svg
-description: Hazan Lab @ Princeton University
+description: Hazan Lab at Princeton University. Research in machine learning, optimization, control, and AI evaluation and alignment.
+url: "https://www.minregret.com"
+baseurl: ""
 show_downloads: false
 theme: jekyll-theme-minimal
 authors: ["elad"]

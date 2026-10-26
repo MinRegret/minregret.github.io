@@ -2,39 +2,33 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ "/assets/img/favicon.ico" | relative_url }}" type="image/x-icon">
     {% include mathjax.html %}
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-        
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
-        {% endif %}
-
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
-        <div class="navigation">
-          <span><a href="/research">Research</a></span>
-          <span><a href="/blog">Blog</a></span>
-          <span><a href="/people">Team</a></span>
-        </div>
-      </header>
-      <section>
-
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="wrapper header-inner">
+        <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="{{ "/research/" | relative_url }}"{% if page.url contains '/research' %} aria-current="page"{% endif %}>Research</a>
+          <a href="{{ "/blog/" | relative_url }}"{% if page.url contains '/blog' or page.layout == 'post' %} aria-current="page"{% endif %}>Blog</a>
+          <a href="{{ "/people/" | relative_url }}"{% if page.url contains '/people' %} aria-current="page"{% endif %}>Team</a>
+          <a href="https://alignment.dais.princeton.edu/">AIAS</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main-content" class="wrapper page-content">
       {{ content }}
-
-      </section>
-      <footer>
-      </footer>
-    </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-
+    </main>
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>Hazan Lab · Princeton University</p>
+        <p><a href="https://www.ehazan.com/">Elad Hazan</a> · <a href="https://alignment.dais.princeton.edu/">Princeton AI Alignment and Safety</a></p>
+      </div>
+    </footer>
   </body>
 </html>
