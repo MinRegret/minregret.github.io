@@ -36,6 +36,6 @@ We develop online nonstochastic control and spectral methods for learning dynami
 - **[Spectral Transformers](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers)** and [FutureFill](https://arxiv.org/abs/2410.03766): efficient neural sequence architectures and fast generation for convolutional models.
 - **Learning and control:** [boosting for dynamical systems](https://arxiv.org/abs/1906.08720), [maximum-entropy exploration](https://arxiv.org/abs/1812.02690), [bandit feedback](https://arxiv.org/abs/2008.05523), [black-box control](https://arxiv.org/abs/2007.06650), and [adaptive control of time-varying dynamics](https://arxiv.org/abs/2007.04393).
 
-Our [software projects](/projects/) include differentiable control environments and [machine learning for mechanical ventilator control](https://arxiv.org/abs/2102.06779).
+Explore our [featured projects](/projects/), including SepaRank and recent sequence-modeling work. DeLuca and Venti are listed under [earlier projects](/projects/#earlier-projects).
 
 See [Google Scholar](https://scholar.google.com/citations?user=LnhCGNMAAAAJ&hl=en&view_op=list_works&sortby=pubdate) for publications and our [blog](/blog/) for research discussions.
