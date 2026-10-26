@@ -6,7 +6,7 @@ title: Home
 
 We develop algorithms and mathematical foundations for machine learning, optimization, and control. Our research spans online learning and decision-making, dynamical systems and sequence modeling, and the evaluation and alignment of increasingly capable AI systems.
 
-The group is led by [Elad Hazan](https://www.ehazan.com/) in the [Department of Computer Science at Princeton University](https://www.cs.princeton.edu/). Our work on AI evaluation and alignment is part of [Princeton AI Alignment and Safety (AIAS)](https://alignment.dais.princeton.edu/). We also collaborate with [Google DeepMind Princeton](https://sites.google.com/view/gbrainprinceton/home).
+Our work on AI evaluation and alignment is part of [Princeton AI Alignment and Safety (AIAS)](https://alignment.dais.princeton.edu/). We also collaborate with [Google DeepMind Princeton](https://sites.google.com/view/gbrainprinceton/home).
 
 See our [research](/research/), meet the [team](/people/), or read our [blog](/blog/).
 
