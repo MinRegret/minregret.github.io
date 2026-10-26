@@ -11,6 +11,6 @@ title: People
 
 <br>
 
-<h2>Former</h2>
+<h2>Former students and postdocs</h2>
 {% assign status = "former" %}
 {% include people-grid.html %}

@@ -5,7 +5,9 @@
   <div>
     {% if person.status == status %}
     <div class="person">
-      <img src="{{ person.name | downcase | replace: ' ', '-' }}.png" onerror="this.style.display='none'" />
+      {% unless person.image == false %}
+      <img alt="{{ person.name }}" src="{{ person.name | downcase | replace: ' ', '-' }}.png" onerror="this.style.display='none'" />
+      {% endunless %}
       <div class="info">
         <a
           href="{{ person.website }}"
@@ -13,8 +15,12 @@
           rel="noreferrer noopener"
           >{{ person.name }}</a
         >
-        <br>
-        {{ person.title }}
+        {% if person.alumni_affiliation %}
+        <br><small>Former student · {{ person.alumni_affiliation }}</small>
+        {% endif %}
+        {% if person.title %}
+        <br>{{ person.title }}
+        {% endif %}
       </div>
     </div>
     {% endif %}

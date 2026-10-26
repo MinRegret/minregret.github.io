@@ -96,3 +96,32 @@ daniel:
   title: Research Scientist at Google Deep Mind
   website: https://www.danielsuo.com/
   status: former
+
+# Technion alumni
+tomer:
+  name: Tomer Koren
+  title: Associate Professor at Tel Aviv University
+  website: https://tomerkoren.github.io/
+  status: former
+  alumni_affiliation: Technion
+  image: false
+kfir:
+  name: Kfir Levy
+  title: Associate Professor at Technion
+  website: https://kfiryehud.wixsite.com/kfir-y-levy
+  status: former
+  alumni_affiliation: Technion
+  image: false
+dan:
+  name: Dan Garber
+  title: Associate Professor at Technion
+  website: https://dds.technion.ac.il/people/academic-staff/dan-garber/
+  status: former
+  alumni_affiliation: Technion
+  image: false
+oren:
+  name: Oren Anava
+  website: https://scholar.google.com/citations?hl=en&user=5qS0n84AAAAJ
+  status: former
+  alumni_affiliation: Technion
+  image: false
