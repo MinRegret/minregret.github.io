@@ -177,6 +177,12 @@ iframe {
   margin: 24px 0 32px;
 }
 .group-photo-pair .group-photo { margin: 0; min-width: 0; }
+.group-photo-pair img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1600 / 1030;
+  object-fit: cover;
+}
 @media (max-width: 600px) {
   .group-photo-pair { grid-template-columns: 1fr; }
 }

@@ -2,7 +2,7 @@
 layout: default
 title: Home
 ---
-# Hazan Lab at Princeton
+# About
 
 We develop algorithms and mathematical foundations for machine learning, optimization, and control. Our research spans online learning and decision-making, dynamical systems and sequence modeling, and the evaluation and alignment of increasingly capable AI systems.
 
