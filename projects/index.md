@@ -5,12 +5,36 @@ title: Projects
 
 # Projects
 
-## `deluca`: performant, differentiable reinforcement learning
-([paper](https://arxiv.org/abs/2102.09968), [code](https://github.com/google/deluca), [website](http://deluca.fyi))
+## Featured projects
 
-We present an open-source library of natively differentiable physics and robotics environments, accompanied by gradient-based control methods and a benchmark-ing suite. The introduced environments allow auto-differentiation through the simulation dynamics, and thereby permit fast training of controllers. The library features several popular environments, including classical control settings from OpenAI Gym. We also provide a novel differentiable environment, based on deep neural networks, that simulates medical ventilation. We give several use-cases of new scientific results obtained using the library. This includes a medical ventilator simulator and controller, an adaptive control method for time-varying linear dynamical systems, and new gradient-based methods for control of linear dynamical systems with adversarial perturbations.
+### SepaRank: measuring intelligence beyond human scale
 
-## `venti`: machine learning for mechanical ventilator control
-([paper](https://arxiv.org/abs/2102.06779), [code](https://github.com/MinRegret/venti), [website](https://minregret.github.io/venti))
+Model-generated challenges for relative evaluation without human-authored benchmarks or a semantic judge.
 
-We consider the problem of controlling an invasive mechanical ventilator for pressure-controlled ventilation: a controller must let air in and out of a sedated patient's lungs according to a trajectory of airway pressures specified by a clinician. Hand-tuned PID controllers and similar variants have comprised the industry standard for decades, yet can behave poorly by over- or under-shooting their target or oscillating rapidly. We consider a data-driven machine learning approach: First, we train a simulator based on data we collect from an artificial lung. Then, we train deep neural network controllers on these simulators. We show that our controllers are able to track target pressure waveforms significantly better than PID controllers. We further show that a learned controller generalizes across lungs with varying characteristics much more readily than PID controllers do.
+[Paper](https://arxiv.org/abs/2607.07040) · [Project](https://princeton-superalignment.github.io/separank/)
+
+### Spectral Transformers and FutureFill
+
+Efficient neural sequence architectures based on spectral methods, and fast generation for convolutional sequence models.
+
+[Spectral Transformers](https://sites.google.com/view/gbrainprinceton/projects/spectral-transformers) · [FutureFill paper](https://arxiv.org/abs/2410.03766)
+
+### Universal Sequence Preconditioning
+
+Memory-efficient prediction using orthogonal polynomials, with a second-order extension.
+
+[Paper](https://arxiv.org/abs/2502.06545) · [Second-order extension](https://arxiv.org/abs/2605.08390)
+
+## Earlier projects
+
+### DeLuca: differentiable learning and control
+
+An open-source library of differentiable physics and robotics environments, gradient-based control methods, and benchmarks.
+
+[Paper](https://arxiv.org/abs/2102.09968) · [Code](https://github.com/google/deluca)
+
+### Venti: learning for mechanical ventilator control
+
+Research on learning simulators and controllers for pressure-controlled ventilation, evaluated using an artificial lung.
+
+[Paper](https://arxiv.org/abs/2102.06779) · [Code](https://github.com/MinRegret/venti) · [Project](https://minregret.github.io/venti)
