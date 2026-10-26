@@ -10,10 +10,16 @@ The group is led by [Elad Hazan](https://www.ehazan.com/) in the [Department of 
 
 See our [research](/research/), meet the [team](/people/), or read our [blog](/blog/).
 
+<div class="group-photo-pair">
 <figure class="group-photo">
   <img src="{{ '/assets/img/princeton-superalignment-group.jpg' | relative_url }}" alt="Princeton SuperAlignment group gathered by the tiger statue on campus" width="1600" height="1030">
   <figcaption>Our Princeton SuperAlignment group.</figcaption>
 </figure>
+<figure class="group-photo">
+  <img src="{{ '/assets/img/2019-summer-0.jpg' | relative_url }}" alt="Hazan research group in Summer 2019" loading="lazy">
+  <figcaption>Summer 2019.</figcaption>
+</figure>
+</div>
 
 ## Research
 
@@ -26,10 +32,3 @@ See our [research](/research/), meet the [team](/people/), or read our [blog](/b
 {% for post in site.posts limit:3 %}
 - [{{ post.title }}]({{ post.url | relative_url }}) — {{ post.date | date: "%B %-d, %Y" }}
 {% endfor %}
-
-## Our group in Summer 2019
-
-<figure class="group-photo">
-  <img src="{{ '/assets/img/2019-summer-0.jpg' | relative_url }}" alt="Hazan research group in Summer 2019" loading="lazy">
-  <figcaption>Summer 2019.</figcaption>
-</figure>
